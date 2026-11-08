@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>الفنادق | CF Travel</title>
+<link rel="icon" href="images/logo.png" type="image/png" />
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
@@ -187,36 +188,41 @@ ul{list-style:none;}
   .gallery-card { width: 350px; height: 250px; }
 }
 @media(max-width:900px){
-  .carousel-track { width: 320px; height: 460px; }
-  .show-card { width: 320px; height: 460px; }
-  .nav-btn { width: 50px; height: 50px; font-size: 20px; }
-  .nav-prev { right: 2%; }
-  .nav-next { left: 2%; }
+  .carousel-track { width: 280px; height: 420px; }
+  .show-card { width: 280px; height: 420px; }
+  .show-content { padding: 20px 15px; }
+  .show-content h3 { font-size: 20px; }
+  .btn-gallery, .btn-book { padding: 8px 15px; font-size: 13px; }
+  
+  .nav-btn { width: 45px; height: 45px; font-size: 18px; }
+  .nav-prev { right: 1%; }
+  .nav-next { left: 1%; }
+
+  .modal-content { padding: 15px; }
+  .gallery-3d { height: 350px; }
+  .gallery-card { width: 280px; height: 200px; }
+  .modal-nav { width: 40px; height: 40px; font-size: 16px; }
+  .nav-gallery-prev { right: 0; }
+  .nav-gallery-next { left: 0; }
+  
+  .modal-header { margin-bottom: 10px; }
+  .close-modal { width: 35px; height: 35px; font-size: 16px; }
+  .hotel-details-box { padding: 20px; }
+  .hotel-details-box h3 { font-size: 20px; }
+
   .footer { flex-direction: column; gap: 5px; }
   .floating-social { bottom: 100px; }
 
-  /* Mobile menu */
   .menu-toggle{display:block;}
   .nav-links{
-    position:absolute;
-    top:100%;
-    right:0;
-    left:0;
-    background:rgba(10,37,64,0.98);
-    backdrop-filter:blur(15px);
-    flex-direction:column;
-    gap:0;
-    max-height:0;
-    overflow:hidden;
+    position:absolute; top:100%; right:0; left:0;
+    background:rgba(10,37,64,0.98); backdrop-filter:blur(15px);
+    flex-direction:column; gap:0; max-height:0; overflow:hidden;
     transition:max-height 0.4s ease;
   }
   .nav-links.show{max-height:500px;}
   .nav-links li{width:100%;}
-  .nav-links a{
-    display:block;
-    padding:15px 20px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
+  .nav-links a{display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08);}
   .nav-links a.active::after{display:none;}
 }
 </style>
@@ -300,99 +306,27 @@ const WHATSAPP_NUMBER = "79851996819";
 const COMPANY_NAME = "CF Travel";
 let currentBookingHotel = "";
 
-// ✅ كل الفنادق (تم تصليح National Hotel نهائياً)
 const hotels = [
-  { 
-    name:"Ararat Park Hyatt", stars:5, zone:"السنتر", 
-    cover:"images/ararat-cover.jpg", 
-    images:["images/ararat-room1.jpg","images/ararat-room2.jpg","images/ararat-room3.jpg"],
-    info: { distance:"5 دقائق مشي", view:"مسرح البولشوي", size:"من 40 إلى 75 متر" }
-  },
-  { 
-    name:"Baltschug Kempinski", stars:5, zone:"على النهر", 
-    cover:"images/baltschug-cover.jpg", 
-    images:["images/baltschug-room1.jpg","images/baltschug-room2.jpg","images/baltschug-room3.jpg"],
-    info: { distance:"15 دقيقة مشي", view:"الكرملين والنهر", size:"من 35 إلى 65 متر" }
-  },
-  { 
-    name:"The Carlton, Moscow", stars:5, zone:"السنتر", 
-    cover:"images/carlton-cover.jpg", 
-    images:["images/carlton-room1.jpg","images/carlton-room2.jpg","images/carlton-room3.jpg"],
-    info: { distance:"3 دقائق مشي", view:"شارع Tverskaya", size:"من 40 إلى 70 متر" }
-  },
-  { 
-    name:"Cosmos Arbat", stars:4, zone:"أربات", 
-    cover:"images/Cosmos arbat.jpg", 
-    images:["images/cosmos-room1.jpg","images/cosmos-room2.jpg","images/cosmos-room3.jpg"],
-    info: { distance:"10 دقائق مشي", view:"شارع أربات", size:"من 25 إلى 45 متر" }
-  },
-  { 
-    name:"DoubleTree Arbat", stars:4, zone:"أربات", 
-    cover:"images/doubletree-arbat-cover.jpg", 
-    images:["images/doubletree-arbat-room1.jpg","images/doubletree-arbat-room2.jpg","images/doubletree-arbat-room3.jpg"],
-    info: { distance:"8 دقائق مشي", view:"شارع أربات", size:"من 25 إلى 45 متر" }
-  },
-  { 
-    name:"Four Seasons Hotel Moscow", stars:5, zone:"السنتر", 
-    cover:"images/four-seasons-cover.jpg", 
-    images:["images/four-seasons-room1.jpg","images/four-seasons-room3.jpg","images/four-seasons-room4.jpg"],
-    info: { distance:"دقيقة واحدة مشي", view:"الكرملين مباشرة", size:"من 45 إلى 80 متر" }
-  },
-  { 
-    name:"Intermark Hotel", stars:4, zone:"السنتر", 
-    cover:"images/intermark-cover.jpg", 
-    images:["images/intermark-room1.jpg","images/intermark-room2.jpg"],
-    info: { distance:"5 دقائق مشي", view:"وسط موسكو", size:"من 25 إلى 45 متر" }
-  },
-  { 
-    name:"Lotte Hotel Moscow", stars:5, zone:"أربات", 
-    cover:"images/lotte-cover.jpg", 
-    images:["images/lotte-room1.jpg","images/lotte-room3.jpg","images/lotte-room4.jpg"],
-    info: { distance:"10 دقائق مشي", view:"شارع أربات", size:"من 40 إلى 75 متر" }
-  },
-  { 
-    name:"Metropol Hotel", stars:5, zone:"السنتر", 
-    cover:"images/metropol-cover.jpg", 
-    images:["images/metropol-room1.jpg","images/metropol-room2.jpg","images/metropol-room3.jpg"],
-    info: { distance:"2 دقيقة مشي", view:"مسرح البولشوي", size:"من 35 إلى 65 متر" }
-  },
-  { 
-    name:"National Hotel", stars:5, zone:"السنتر", 
-    cover:"images/national-cover.jpg", 
-    images:["images/national-cover.jpg", "images/national-room1.jpg", "images/national-room2.jpg", "images/national-room3.jpg"],
-    info: { distance:"2 دقيقة مشي", view:"الكرملين", size:"من 35 إلى 60 متر" }
-  },
-  { 
-    name:"Novotel Moscow City", stars:4, zone:"على النهر", 
-    cover:"images/novotel-cover.jpg", 
-    images:["images/novotel-room1.jpg","images/novotel-room2.jpg","images/novotel-room3.jpg"],
-    info: { distance:"15 دقيقة بالسيارة", view:"نهر موسكو", size:"من 25 إلى 40 متر" }
-  },
-  { 
-    name:"Radisson Collection", stars:5, zone:"على النهر", 
-    cover:"images/radisson-collection-cover.jpg", 
-    images:["images/radisson-collection-room1.jpg","images/radisson-collection-room2.jpg"],
-    info: { distance:"10 دقائق مشي", view:"إطلالة على النهر", size:"من 40 إلى 70 متر" }
-  },
-  { 
-    name:"St. Regis Moscow", stars:5, zone:"السنتر", 
-    cover:"images/st-regis-cover.jpg", 
-    images:["images/st-regis-room1.jpg","images/st-regis-room2.jpg","images/st-regis-room3.jpg"],
-    info: { distance:"5 دقائق مشي", view:"قرب الكرملين", size:"من 45 إلى 80 متر" }
-  },
-  { 
-    name:"Swissôtel Krasnye Holmy", stars:5, zone:"على النهر", 
-    cover:"images/swissotel-cover.jpg", 
-    images:["images/swissotel-room1.jpg","images/swissotel-room2.jpg","images/swissotel-room3.jpg"],
-    info: { distance:"10 دقائق مشي", view:"إطلالة بانورامية", size:"من 35 إلى 60 متر" }
-  }
+  { name:"Ararat Park Hyatt", stars:5, zone:"السنتر", cover:"images/ararat-cover.jpg", images:["images/ararat-room1.jpg","images/ararat-room2.jpg","images/ararat-room3.jpg"], info: { distance:"5 دقائق مشي", view:"مسرح البولشوي", size:"من 40 إلى 75 متر" } },
+  { name:"Baltschug Kempinski", stars:5, zone:"على النهر", cover:"images/baltschug-cover.jpg", images:["images/baltschug-room1.jpg","images/baltschug-room2.jpg","images/baltschug-room3.jpg"], info: { distance:"15 دقيقة مشي", view:"الكرملين والنهر", size:"من 35 إلى 65 متر" } },
+  { name:"The Carlton, Moscow", stars:5, zone:"السنتر", cover:"images/carlton-cover.jpg", images:["images/carlton-room1.jpg","images/carlton-room2.jpg","images/carlton-room3.jpg"], info: { distance:"3 دقائق مشي", view:"شارع Tverskaya", size:"من 40 إلى 70 متر" } },
+  { name:"Cosmos Arbat", stars:4, zone:"أربات", cover:"images/Cosmos arbat.jpg", images:["images/cosmos-room1.jpg","images/cosmos-room2.jpg","images/cosmos-room3.jpg"], info: { distance:"10 دقائق مشي", view:"شارع أربات", size:"من 25 إلى 45 متر" } },
+  { name:"DoubleTree Arbat", stars:4, zone:"أربات", cover:"images/doubletree-arbat-cover.jpg", images:["images/doubletree-arbat-room1.jpg","images/doubletree-arbat-room2.jpg","images/doubletree-arbat-room3.jpg"], info: { distance:"8 دقائق مشي", view:"شارع أربات", size:"من 25 إلى 45 متر" } },
+  { name:"Four Seasons Hotel Moscow", stars:5, zone:"السنتر", cover:"images/four-seasons-cover.jpg", images:["images/four-seasons-room1.jpg","images/four-seasons-room3.jpg","images/four-seasons-room4.jpg"], info: { distance:"دقيقة واحدة مشي", view:"الكرملين مباشرة", size:"من 45 إلى 80 متر" } },
+  { name:"Intermark Hotel", stars:4, zone:"السنتر", cover:"images/intermark-cover.jpg", images:["images/intermark-room1.jpg","images/intermark-room2.jpg"], info: { distance:"5 دقائق مشي", view:"وسط موسكو", size:"من 25 إلى 45 متر" } },
+  { name:"Lotte Hotel Moscow", stars:5, zone:"أربات", cover:"images/lotte-cover.jpg", images:["images/lotte-room1.jpg","images/lotte-room3.jpg","images/lotte-room4.jpg"], info: { distance:"10 دقائق مشي", view:"شارع أربات", size:"من 40 إلى 75 متر" } },
+  { name:"Metropol Hotel", stars:5, zone:"السنتر", cover:"images/metropol-cover.jpg", images:["images/metropol-room1.jpg","images/metropol-room2.jpg","images/metropol-room3.jpg"], info: { distance:"2 دقيقة مشي", view:"مسرح البولشوي", size:"من 35 إلى 65 متر" } },
+  { name:"National Hotel", stars:5, zone:"السنتر", cover:"images/national-cover.jpg", images:["images/national-cover.jpg", "images/national-room1.jpg", "images/national-room2.jpg", "images/national-room3.jpg"], info: { distance:"2 دقيقة مشي", view:"الكرملين", size:"من 35 إلى 60 متر" } },
+  { name:"Novotel Moscow City", stars:4, zone:"على النهر", cover:"images/novotel-cover.jpg", images:["images/novotel-room1.jpg","images/novotel-room2.jpg","images/novotel-room3.jpg"], info: { distance:"15 دقيقة بالسيارة", view:"نهر موسكو", size:"من 25 إلى 40 متر" } },
+  { name:"Radisson Collection", stars:5, zone:"على النهر", cover:"images/radisson-collection-cover.jpg", images:["images/radisson-collection-room1.jpg","images/radisson-collection-room2.jpg"], info: { distance:"10 دقائق مشي", view:"إطلالة على النهر", size:"من 40 إلى 70 متر" } },
+  { name:"St. Regis Moscow", stars:5, zone:"السنتر", cover:"images/st-regis-cover.jpg", images:["images/st-regis-room1.jpg","images/st-regis-room2.jpg","images/st-regis-room3.jpg"], info: { distance:"5 دقائق مشي", view:"قرب الكرملين", size:"من 45 إلى 80 متر" } },
+  { name:"Swissôtel Krasnye Holmy", stars:5, zone:"على النهر", cover:"images/swissotel-cover.jpg", images:["images/swissotel-room1.jpg","images/swissotel-room2.jpg","images/swissotel-room3.jpg"], info: { distance:"10 دقائق مشي", view:"إطلالة بانورامية", size:"من 35 إلى 60 متر" } }
 ];
 
 const track = document.getElementById("carouselTrack");
 const container = document.getElementById("carouselContainer");
 let activeIndex = 0;
 
-// بناء الكروت
 function renderCarousel() {
   track.innerHTML = hotels.map((hotel, index) => {
     const stars = "★".repeat(hotel.stars) + "☆".repeat(5 - hotel.stars);
@@ -414,19 +348,16 @@ function renderCarousel() {
   updateCarousel();
 }
 
-// تحديث حركة الكروت
 function updateCarousel() {
   const cards = document.querySelectorAll(".show-card");
   cards.forEach((card, index) => {
     let offset = index - activeIndex;
     if (Math.abs(offset) > 2) {
-      card.style.opacity = '0';
-      card.style.pointerEvents = 'none';
+      card.style.opacity = '0'; card.style.pointerEvents = 'none';
       card.style.transform = `scale(0.5) translateX(${offset > 0 ? '100%' : '-100%'})`;
       return;
     }
-    card.style.opacity = '1';
-    card.style.pointerEvents = 'auto';
+    card.style.opacity = '1'; card.style.pointerEvents = 'auto';
     let scale = 1 - Math.abs(offset) * 0.15;
     let translateX = offset * 65;
     let rotateY = offset * -25;
@@ -446,7 +377,6 @@ function updateCarousel() {
   });
 }
 
-// التنقل بالأسهم
 function moveCarousel(direction) {
   activeIndex += direction;
   if (activeIndex < 0) activeIndex = hotels.length - 1;
@@ -454,37 +384,24 @@ function moveCarousel(direction) {
   updateCarousel();
 }
 
-// ==========================================
-// ======== SWIPE & DRAG LOGIC ==============
-// ==========================================
-let startX = 0;
-let isDragging = false;
+let startX = 0, isDragging = false;
 const swipeThreshold = 50;
-
 function dragStart(e) {
   if (e.target.closest('button')) return;
   isDragging = true;
   startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
   track.style.transition = 'none'; 
 }
-
 function dragEnd(e) {
   if (!isDragging) return;
   isDragging = false;
   track.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
-
   let endX = e.type.includes('mouse') ? e.pageX : e.changedTouches[0].pageX;
   let diff = startX - endX;
-
-  if (diff > swipeThreshold) {
-    moveCarousel(1);
-  } else if (diff < -swipeThreshold) {
-    moveCarousel(-1);
-  } else {
-    updateCarousel();
-  }
+  if (diff > swipeThreshold) moveCarousel(1);
+  else if (diff < -swipeThreshold) moveCarousel(-1);
+  else updateCarousel();
 }
-
 container.addEventListener('mousedown', dragStart);
 container.addEventListener('mouseup', dragEnd);
 container.addEventListener('mouseleave', () => { if(isDragging) dragEnd({ type: 'mouse', pageX: startX }); });
@@ -492,10 +409,6 @@ container.addEventListener('touchstart', dragStart, {passive: true});
 container.addEventListener('touchend', dragEnd, {passive: true});
 container.addEventListener('dragstart', (e) => e.preventDefault());
 
-
-// ==========================================
-// ======== 3D GALLERY LOGIC ================
-// ==========================================
 const modal = document.getElementById("galleryModal");
 const gallery3D = document.getElementById("gallery3D");
 let currentHotelImages = [], currentGalleryIndex = 0, galleryCards = [];
@@ -506,7 +419,6 @@ function openGallery(hotelIndex) {
   currentBookingHotel = hotel.name;
   currentHotelImages = hotel.images;
   currentGalleryIndex = 0;
-
   gallery3D.querySelectorAll('.gallery-card').forEach(el => el.remove());
   currentHotelImages.forEach((img, i) => {
     let card = document.createElement("div");
@@ -515,7 +427,6 @@ function openGallery(hotelIndex) {
     card.onclick = () => { currentGalleryIndex = i; updateGallery3D(); };
     gallery3D.appendChild(card);
   });
-
   galleryCards = document.querySelectorAll(".gallery-card");
   updateGallery3D();
   modal.classList.add("active");
@@ -527,13 +438,11 @@ function updateGallery3D() {
   galleryCards.forEach((card, index) => {
     let offset = index - currentGalleryIndex;
     if (Math.abs(offset) > 2) {
-      card.style.opacity = '0';
-      card.style.pointerEvents = 'none';
+      card.style.opacity = '0'; card.style.pointerEvents = 'none';
       card.style.transform = `scale(0.5) translateX(${offset > 0 ? '60%' : '-60%'})`;
       return;
     }
-    card.style.opacity = '1';
-    card.style.pointerEvents = 'auto';
+    card.style.opacity = '1'; card.style.pointerEvents = 'auto';
     let scale = 1 - Math.abs(offset) * 0.2;
     let translateX = offset * 40;
     let rotateY = offset * -30;
@@ -542,14 +451,12 @@ function updateGallery3D() {
 
     if (offset === 0) {
       card.style.transform = `translateX(0) scale(1) rotateY(0deg)`;
-      card.style.opacity = '1';
-      card.style.zIndex = 10;
+      card.style.opacity = '1'; card.style.zIndex = 10;
       card.style.borderColor = 'var(--secondary)';
       card.style.boxShadow = '0 0 60px rgba(0, 180, 216, 0.5)';
     } else {
       card.style.transform = `translateX(${translateX}%) scale(${scale}) rotateY(${rotateY}deg)`;
-      card.style.opacity = opacity;
-      card.style.zIndex = zIndex;
+      card.style.opacity = opacity; card.style.zIndex = zIndex;
       card.style.borderColor = 'rgba(255,255,255,0.1)';
       card.style.boxShadow = '0 25px 60px rgba(0,0,0,0.8)';
     }
@@ -564,9 +471,6 @@ function moveGallery(direction) {
   updateGallery3D();
 }
 
-// ==========================================
-// ======== BOOKING (WHATSAPP) ==============
-// ==========================================
 function bookHotel(hotelName) {
   if (!hotelName) hotelName = currentBookingHotel;
   if (!hotelName) return;
@@ -575,13 +479,7 @@ function bookHotel(hotelName) {
   window.open(url, '_blank');
 }
 
-// ==========================================
-// ======== إغلاق المودال بالكيبورد/الخلفية ==
-// ==========================================
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) closeGallery();
-});
-
+modal.addEventListener('click', (e) => { if (e.target === modal) closeGallery(); });
 document.addEventListener('keydown', (e) => {
   if (!modal.classList.contains('active')) return;
   if (e.key === 'Escape') closeGallery();
@@ -589,38 +487,23 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') moveGallery(1);
 });
 
-// ==========================================
-// ======== MENU TOGGLE (MOBILE) ============
-// ==========================================
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
-
 if (menuToggle) {
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
     const icon = menuToggle.querySelector('i');
-    if (navLinks.classList.contains('show')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-xmark');
-    } else {
-      icon.classList.remove('fa-xmark');
-      icon.classList.add('fa-bars');
-    }
+    if (navLinks.classList.contains('show')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); } 
+    else { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
   });
-
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('show');
       const icon = menuToggle.querySelector('i');
-      icon.classList.remove('fa-xmark');
-      icon.classList.add('fa-bars');
+      icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars');
     });
   });
 }
-
-// ==========================================
-// ======== INIT =============================
-// ==========================================
 renderCarousel();
 </script>
 </body>
