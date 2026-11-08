@@ -4,34 +4,27 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CF Travel | أفضل شركة سياحة في روسيا - فنادق موسكو وسوتشي</title>
-  
+<link rel="icon" href="images/logo.png" type="image/png" />
 <meta name="description" content="CF Travel هي شركة سياحة متخصصة في تنظيم الرحلات إلى روسيا. نوفر حجز فنادق موسكو وسوتشي بأقل من السعر الرسمي، سائق عربي، وحجوزات فعاليات فورية." />
 <meta name="keywords" content="سياحة روسيا, شركة سياحة في موسكو, حجز فنادق سوتشي, سائق عربي في روسيا, فعاليات موسكو, CF Travel" />
 <meta name="author" content="CF Travel" />
-  
 <meta property="og:title" content="CF Travel | شركة سياحة في روسيا" />
 <meta property="og:description" content="احجز فنادق موسكو وسوتشي بأقل من السعر الرسمي، مع سائق عربي وحجوزات فعاليات فورية." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://images.unsplash.com/photo-1513326738677-b964603b136d?w=800" />
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
   "name": "CF Travel",
   "description": "شركة سياحة متخصصة في تنظيم الرحلات إلى روسيا، حجز فنادق موسكو وسوتشي، وتوفير سائقين عرب.",
-  "url": "https://www.yourwebsite.com",
+  "url": "https://www.cftravel.site",
   "telephone": "+79851996819",
   "email": "cftravel52@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Moscow",
-    "addressCountry": "RU"
-  },
+  "address": { "@type": "PostalAddress", "addressLocality": "Moscow", "addressCountry": "RU" },
   "sameAs": ["https://www.tiktok.com/@cf_travel_ru"]
 }
 </script>
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
@@ -101,6 +94,13 @@ ul{list-style:none;}
   .services-grid { grid-template-columns: 1fr; }
   .about-card { padding: 40px 20px; }
   .footer { flex-direction: column; gap: 5px; }
+  
+  .menu-toggle{display:block;}
+  .nav-links{ position:absolute; top:100%; right:0; left:0; background:rgba(10,37,64,0.98); backdrop-filter:blur(15px); flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+  .nav-links.show{max-height:500px;}
+  .nav-links li{width:100%;}
+  .nav-links a{ display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .nav-links a.active::after{display:none;}
 }
 </style>
 </head>
@@ -176,7 +176,22 @@ ul{list-style:none;}
 </div>
 
 <script>
-document.querySelector(".menu-toggle").addEventListener("click", () => document.querySelector(".nav-links").classList.toggle("open"));
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    const icon = menuToggle.querySelector('i');
+    if (navLinks.classList.contains('show')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-xmark');
+    } else {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
+  });
+}
 </script>
 </body>
 </html>
