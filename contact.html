@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>اتصل بنا | CF Travel</title>
+<link rel="icon" href="images/logo.png" type="image/png" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--primary:#0A2540;--secondary:#00B4D8;--accent:#FFB703;--text:#F8F9FA;--muted:#9CA3AF;--glass:rgba(10, 37, 64, 0.7);}
+html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;color:var(--text);background:var(--primary);line-height:1.6;direction:rtl;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+.container{max-width:1300px;margin:0 auto;padding:0 20px;}
+
+/* Top Bar & Navbar */
+.top-bar{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;text-align:center;padding:10px 20px;font-size:14px;font-weight:600;position:fixed;top:0;width:100%;z-index:1000;}
+.navbar{background:rgba(10, 37, 64, 0.95);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,0.1);position:fixed;top:41px;width:100%;z-index:1000;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
+.logo{font-size:26px;font-weight:800;color:#fff;display:flex;align-items:center;gap:10px;}
+.nav-logo-img{height:50px;width:auto;border-radius:8px;object-fit:contain;}
+.nav-logo-text{display:flex;align-items:center;gap:5px;letter-spacing:0.5px;}
+.nav-logo-text span{color:var(--accent);}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{font-weight:600;color:#fff;transition:.3s;position:relative;font-size:16px;}
+.nav-links a:hover,.nav-links a.active{color:var(--secondary);}
+.nav-links a.active::after{content:'';position:absolute;bottom:-6px;right:0;left:0;height:3px;background:var(--accent);border-radius:2px;}
+.menu-toggle{display:none;font-size:22px;background:none;border:none;color:#fff;cursor:pointer;}
+
+.contact-section { position: relative; width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle at center, #143a5e 0%, #0A2540 100%); overflow: hidden; padding: 120px 20px 80px; }
+.globe-bg { position: absolute; width: 700px; height: 700px; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800'); background-size: cover; opacity: 0.15; animation: rotateGlobe 30s linear infinite; box-shadow: 0 0 100px rgba(0, 180, 216, 0.2); }
+@keyframes rotateGlobe { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+.contact-cards { position: relative; z-index: 10; display: flex; gap: 30px; perspective: 1000px; flex-wrap: wrap; justify-content: center; }
+.contact-card { background: var(--glass); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border-radius: 24px; padding: 40px 30px; width: 280px; text-align: center; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; }
+.contact-icon { width: 70px; height: 70px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; transition: all 0.4s ease; }
+.card-wa .contact-icon { background: rgba(37, 211, 102, 0.1); color: #25D366; border: 1px solid rgba(37, 211, 102, 0.3); }
+.card-tiktok .contact-icon { background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.3); }
+.card-email .contact-icon { background: rgba(255, 183, 3, 0.1); color: var(--accent); border: 1px solid rgba(255, 183, 3, 0.3); }
+.contact-card h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.contact-card p { font-size: 14px; color: #ccc; margin-bottom: 25px; flex: 1;}
+.btn-contact { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; background: transparent; border: 2px solid var(--secondary); color: var(--secondary); border-radius: 50px; font-weight: 700; font-size: 15px; transition: 0.3s; font-family: inherit; }
+.card-wa .btn-contact { border-color: #25D366; color: #25D366; }
+.card-tiktok .btn-contact { border-color: #fff; color: #fff; }
+.card-email .btn-contact { border-color: var(--accent); color: var(--accent); }
+.contact-card:hover { transform: translateY(-10px) scale(1.02); background: rgba(10, 37, 64, 0.9); }
+.card-wa:hover { border-color: #25D366; box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3); }
+.card-tiktok:hover { border-color: #fff; box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2); }
+.card-email:hover { border-color: var(--accent); box-shadow: 0 15px 40px rgba(255, 183, 3, 0.3); }
+.contact-card:hover .contact-icon { transform: scale(1.1); }
+.card-wa:hover .btn-contact { background: #25D366; color: #000; }
+.card-tiktok:hover .btn-contact { background: #fff; color: #000; }
+.card-email:hover .btn-contact { background: var(--accent); color: #000; }
+
+.footer{position:relative; width:100%; background:#051320; border-top:1px solid rgba(255, 255, 255, 0.1); color:#fff;padding:20px 0;text-align:center; display:flex; justify-content:center; align-items:center; gap:20px;}
+.footer p{opacity:.8;font-size:13px; margin:0;}
+
+.floating-social { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+.social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+.social-btn:hover { transform: scale(1.1) translateY(-3px); }
+.btn-wa { background: #25D366; box-shadow: 0 5px 20px rgba(37,211,102,0.4); animation: pulse 2s infinite; }
+.btn-tiktok { background: #000; border: 2px solid #fff; color: #fff;}
+.btn-email { background: var(--accent); color: #000; }
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
+@media(max-width:1000px){
+  .contact-section { padding: 100px 20px 80px; }
+  .globe-bg { width: 400px; height: 400px; }
+  .contact-cards { gap: 20px; }
+  .contact-card { width: 100%; max-width: 320px; padding: 30px 20px; }
+  .footer { flex-direction: column; gap: 5px; }
+}
+@media(max-width:900px){
+  /* Mobile menu */
+  .menu-toggle{display:block;}
+  .nav-links{
+    position:absolute;
+    top:100%;
+    right:0;
+    left:0;
+    background:rgba(10,37,64,0.98);
+    backdrop-filter:blur(15px);
+    flex-direction:column;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+  }
+  .nav-links.show{max-height:500px;}
+  .nav-links li{width:100%;}
+  .nav-links a{
+    display:block;
+    padding:15px 20px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links a.active::after{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"><i class="fa-solid fa-circle-check"></i> أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية</div>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="CF Travel Logo" class="nav-logo-img" onerror="this.style.display='none'">
+      <div class="nav-logo-text"><span>Travel</span> CF</div>
+    </a>
+    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="hotels.html">الفنادق</a></li>
+      <li><a href="activities.html">الفعاليات</a></li>
+      <li><a href="cars.html">المواصلات</a></li>
+      <li><a href="calculator.html">حاسبة CF</a></li>
+      <li><a href="contact.html" class="active">اتصل بنا</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="contact-section">
+  <div class="globe-bg"></div>
+  <div class="contact-cards">
+    
+    <a href="https://wa.me/79851996819" target="_blank" class="contact-card card-wa">
+      <div>
+        <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3>واتساب</h3>
+        <p>تواصل معنا مباشرة للحجز والاستفسار</p>
+      </div>
+      <div class="btn-contact"><i class="fa-brands fa-whatsapp"></i> تواصل واتساب</div>
+    </a>
+
+    <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" target="_blank" class="contact-card card-tiktok">
+      <div>
+        <div class="contact-icon"><i class="fa-brands fa-tiktok"></i></div>
+        <h3>تيك توك</h3>
+        <p>شاهد فيديوهات مغامراتنا في روسيا</p>
+      </div>
+      <div class="btn-contact"><i class="fa-brands fa-tiktok"></i> تابعنا على تيك توك</div>
+    </a>
+
+    <a href="mailto:cftravel52@gmail.com" class="contact-card card-email">
+      <div>
+        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+        <h3>البريد الإلكتروني</h3>
+        <p>راسلنا وسنقوم بالرد عليك في أسرع وقت</p>
+      </div>
+      <div class="btn-contact"><i class="fa-solid fa-paper-plane"></i> أرسل إيميل</div>
+    </a>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 CF Travel — جميع الحقوق محفوظة</p>
+  <p style="direction: ltr; display: flex; align-items: center; gap: 5px;"><i class="fa-brands fa-whatsapp"></i> +7 985 199 6819</p>
+</footer>
+
+<div class="floating-social">
+  <a href="https://wa.me/79851996819" class="social-btn btn-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" class="social-btn btn-tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+  <a href="mailto:cftravel52@gmail.com" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
+</div>
+
+<script>
+// كود فتح وقفل قائمة الموبايل
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    const icon = menuToggle.querySelector('i');
+    if (navLinks.classList.contains('show')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-xmark');
+    } else {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
+  });
+}
+</script>
+</body>
+</html>
