@@ -4,7 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>خدمات المواصلات | CF Travel</title>
-<link rel="icon" href="images/logo.png" type="image/png" />
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="images/logo.png" type="image/png" sizes="48x48" />
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
@@ -15,7 +16,6 @@ body{font-family:'Cairo',sans-serif;color:var(--text);background:var(--primary);
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
 .container{max-width:1400px;margin:0 auto;padding:0 20px;}
-
 .top-bar{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;text-align:center;padding:10px 20px;font-size:14px;font-weight:600;position:fixed;top:0;width:100%;z-index:1000;}
 .navbar{background:rgba(10, 37, 64, 0.9);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,0.1);position:fixed;top:41px;width:100%;z-index:1000;}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
@@ -28,24 +28,20 @@ ul{list-style:none;}
 .nav-links a:hover,.nav-links a.active{color:var(--secondary);}
 .nav-links a.active::after{content:'';position:absolute;bottom:-6px;right:0;left:0;height:3px;background:var(--accent);border-radius:2px;}
 .menu-toggle{display:none;font-size:22px;background:none;border:none;color:#fff;cursor:pointer;}
-
 .cars-hero { padding: 160px 20px 60px; text-align: center; background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1600') center/cover fixed; }
 .cars-hero h1 { font-size: clamp(32px,5vw,56px); font-weight: 800; color: #fff; margin-bottom: 15px; }
 .cars-hero h1 span { color: var(--secondary); text-shadow: 0 0 20px rgba(0, 180, 216, 0.5); }
 .cars-hero p { font-size: clamp(16px,2vw,20px); color: #ddd; max-width: 800px; margin: 0 auto 20px; }
 .hero-badges { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
 .hero-badges span { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 8px 20px; border-radius: 50px; font-size: 14px; color: var(--accent); font-weight: 700; display: flex; align-items: center; gap: 8px; }
-
 .split-section { position: relative; width: 100%; height: 80vh; display: flex; background: var(--primary); overflow: hidden; }
 .split-right { width: 65%; height: 100%; position: relative; overflow: hidden; }
 .split-image { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; transform: scale(1.05); }
 .split-image.active { opacity: 1; transform: scale(1); }
 .split-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to left, rgba(10,37,64,0.95) 0%, transparent 100%); }
-
 .split-left { width: 35%; height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 0 40px; background: rgba(10,37,64, 0.98); position: relative; z-index: 10; border-left: 1px solid rgba(255,255,255,0.05); }
 .split-title { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 30px; line-height: 1.2; }
 .split-title span { color: var(--secondary); }
-
 .car-list { display: flex; flex-direction: column; gap: 10px; max-height: 55vh; overflow-y: auto; padding-left: 10px; }
 .car-list::-webkit-scrollbar { width: 4px; }
 .car-list::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 10px; }
@@ -53,5 +49,146 @@ ul{list-style:none;}
 .car-item i { font-size: 14px; color: transparent; transition: 0.3s; }
 .car-item:hover, .car-item.active { color: var(--secondary); transform: translateX(-8px); }
 .car-item:hover i, .car-item.active i { color: var(--secondary); transform: rotate(45deg); }
-
-.floating-info { position: absolute; bottom: 40px; right: 40px; background: rgba(10, 37, 64, 0.6);
+.floating-info { position: absolute; bottom: 40px; right: 40px; background: rgba(10, 37, 64, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 180, 216, 0.2); border-top: 4px solid var(--secondary); padding: 30px; border-radius: 15px; max-width: 380px; z-index: 20; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+.floating-info h3 { font-size: 24px; color: #fff; margin-bottom: 15px; }
+.floating-info ul { margin-bottom: 25px; }
+.floating-info ul li { color: #ddd; font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.floating-info ul li i { color: var(--secondary); }
+.btn-book { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px; background: var(--secondary); color: #000; border: none; border-radius: 10px; font-weight: 800; font-size: 16px; font-family: inherit; cursor: pointer; transition: 0.3s; }
+.btn-book:hover { background: #fff; box-shadow: 0 0 20px rgba(0, 180, 216, 0.5); }
+.footer{position:relative; width:100%; background:rgba(5,12,21,0.95); border-top:1px solid rgba(255, 255, 255, 0.1); color:#fff;padding:20px 0;text-align:center; display:flex; justify-content:center; align-items:center; gap:20px;}
+.footer p{opacity:.8;font-size:13px; margin:0;}
+.floating-social { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+.social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+.social-btn:hover { transform: scale(1.1) translateY(-3px); }
+.btn-wa { background: #25D366; box-shadow: 0 5px 20px rgba(37,211,102,0.4); animation: pulse 2s infinite; }
+.btn-tiktok { background: #000; border: 2px solid #fff; color: #fff;}
+.btn-email { background: var(--accent); color: #000; }
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+@media(max-width:1000px){
+  .split-section { flex-direction: column; height: auto; }
+  .split-right { width: 100%; height: 350px; }
+  .split-left { width: 100%; height: auto; padding: 30px 20px; border-left: none; border-top: 1px solid rgba(255,255,255,0.05);}
+  .car-list { max-height: none; flex-direction: row; flex-wrap: wrap; justify-content: center;}
+  .floating-info { position: relative; bottom: 0; right: 0; margin: -40px auto 20px; max-width: 90%; transform: translateY(-20px);}
+}
+@media(max-width:900px){
+  .menu-toggle{display:block;}
+  .nav-links{ position:absolute; top:100%; right:0; left:0; background:rgba(10,37,64,0.98); backdrop-filter:blur(15px); flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+  .nav-links.show{max-height:500px;}
+  .nav-links li{width:100%;}
+  .nav-links a{ display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .nav-links a.active::after{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="top-bar"><i class="fa-solid fa-circle-check"></i> أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية</div>
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="CF Travel Logo" class="nav-logo-img" onerror="this.style.display='none'">
+      <div class="nav-logo-text"><span>Travel</span> CF</div>
+    </a>
+    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="hotels.html">الفنادق</a></li>
+      <li><a href="activities.html">الفعاليات</a></li>
+      <li><a href="cars.html" class="active">المواصلات</a></li>
+      <li><a href="calculator.html">حاسبة السفر</a></li>
+      <li><a href="contact.html">اتصل بنا</a></li>
+    </ul>
+  </div>
+</nav>
+<header class="cars-hero">
+  <h1>خدمات <span>المواصلات</span></h1>
+  <p>أسطول سيارات حديث ومتنوع يناسب جميع احتياجاتك. نوفر لك استقبال وتوديع من المطار، وجولات سياحية ممتعة مع سائقين عرب وروس.</p>
+  <div class="hero-badges">
+    <span><i class="fa-solid fa-plane"></i> استقبال وتوديع</span>
+    <span><i class="fa-solid fa-map-location-dot"></i> جولات سياحية</span>
+    <span><i class="fa-solid fa-user-tie"></i> سائقين عرب وروس</span>
+  </div>
+</header>
+<section class="split-section">
+  <div class="split-right" id="imageContainer"></div>
+  <div class="split-left">
+    <h1 class="split-title">اختر <br><span>سيارتك</span></h1>
+    <div class="car-list" id="carList"></div>
+  </div>
+  <div class="floating-info" id="infoContainer">
+    <h3 id="carName">اسم السيارة</h3>
+    <ul id="carFeatures"></ul>
+    <button class="btn-book" id="bookBtn"><i class="fa-brands fa-whatsapp"></i> احجز هذه السيارة</button>
+  </div>
+</section>
+<footer class="footer">
+  <p>© 2025 CF Travel — جميع الحقوق محفوظة</p>
+  <p style="direction: ltr; display: flex; align-items: center; gap: 5px;"><i class="fa-brands fa-whatsapp"></i> +7 985 199 6819</p>
+</footer>
+<div class="floating-social">
+  <a href="https://wa.me/79851996819" class="social-btn btn-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" class="social-btn btn-tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
+</div>
+<script>
+const WHATSAPP_NUMBER = "79851996819";
+const COMPANY_NAME = "CF Travel";
+const allCars = [
+  { name: "Mercedes E-Class", img: "images/mers-e.jpg", features: ["فخامة وراحة", "سائق عربي/روسي", "مكيفة"] },
+  { name: "Faw", img: "images/faw.jpg", features: ["سيارة عصرية", "سائق عربي/روسي", "مكيفة"] },
+  { name: "Geely Coolray", img: "images/geely (1).jpg", features: ["SUV مدمجة", "سائق عربي/روسي", "مكيفة"] },
+  { name: "Chery Tiggo 7 Pro", img: "images/chery.jpg", features: ["عائلية مريحة", "سائق عربي/روسي", "مكيفة"] },
+  { name: "Haval Jolion", img: "images/haval.jpg", features: ["SUV أنيقة", "سائق عربي/روسي", "مكيفة"] },
+  { name: "Exeed", img: "images/exeed.jpg", features: ["فخامة ومساحة", "سائق عربي/روسي", "مكيفة"] },
+  { name: "Jaecoo J7", img: "images/jaecoo.jpg", features: ["سيارة عصرية", "سائق عربي/روسي", "مكيفة"] },
+  { name: "Mercedes V-Class", img: "images/mers-v.png", features: ["فان فاخر", "يتسع لـ 7 أفراد", "سائق عربي/روسي"] },
+  { name: "Mercedes Sprinter", img: "images/mers sprinter.jpg", features: ["فان واسع", "يتسع لـ 15 فرد", "سائق عربي/روسي"] },
+  { name: "Mercedes Long", img: "images/mers-long.png", features: ["مساحة استثنائية", "يتسع لـ 8 أفراد", "سائق عربي/روسي"] }, 
+  { name: "Volkswagen", img: "images/vw.jpg", features: ["فان عائلي", "يتسع لـ 7 أفراد", "سائق عربي/روسي"] },
+  { name: "Zeekr 008", img: "images/zeeker.jpg", features: ["فان كهربائي حديث", "يتسع لـ 6 أفراد", "سائق عربي/روسي"] },
+  { name: "Jac J8", img: "images/jac.jpg", features: ["فان عائلي عملي", "يتسع لـ 7 أفراد", "سائق عربي/روسي"] }
+];
+document.getElementById("imageContainer").innerHTML = allCars.map((car, index) => {
+  return `<div class="split-image ${index === 0 ? 'active' : ''}" id="img-${index}" style="background-image: url('${car.img}');"></div>`;
+}).join("");
+document.getElementById("carList").innerHTML = allCars.map((car, index) => {
+  let label = "";
+  if (index === 0) label = `<div style="color: var(--accent); font-size: 13px; margin-bottom: 5px; font-weight: 800;">سيارات عادية</div>`;
+  if (index === 7) label = `<div style="color: var(--accent); font-size: 13px; margin-top: 15px; margin-bottom: 5px; font-weight: 800;">ميني فان</div>`;
+  return `
+    ${label}
+    <div class="car-item ${index === 0 ? 'active' : ''}" id="item-${index}" onmouseover="changeCar(${index})">
+      <i class="fa-solid fa-car-side"></i> ${car.name}
+    </div>
+  `;
+}).join("");
+function changeCar(index) {
+  document.querySelectorAll('.split-image').forEach(img => img.classList.remove('active'));
+  document.getElementById(`img-${index}`).classList.add('active');
+  document.querySelectorAll('.car-item').forEach(item => item.classList.remove('active'));
+  document.getElementById(`item-${index}`).classList.add('active');
+  const car = allCars[index];
+  document.getElementById("carName").innerText = car.name;
+  const featuresHTML = car.features.map(f => `<li><i class="fa-solid fa-check"></i> ${f}</li>`).join("");
+  document.getElementById("carFeatures").innerHTML = featuresHTML;
+  document.getElementById("bookBtn").onclick = () => bookCar(car.name);
+}
+function bookCar(carName) {
+  const msg = `مرحباً ${COMPANY_NAME}،\nأرغب في حجز سيارة: ${carName}\nالتاريخ: \nعدد الأفراد: \nوشكراً.`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+}
+changeCar(0);
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    const icon = menuToggle.querySelector('i');
+    if (navLinks.classList.contains('show')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); } 
+    else { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
+  });
+}
+</script>
+</body>
+</html>
