@@ -4,7 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>اتصل بنا | CF Travel</title>
-<link rel="icon" href="images/logo.png" type="image/png" />
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="images/logo.png" type="image/png" sizes="48x48" />
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
@@ -15,8 +16,6 @@ body{font-family:'Cairo',sans-serif;color:var(--text);background:var(--primary);
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
 .container{max-width:1300px;margin:0 auto;padding:0 20px;}
-
-/* Top Bar & Navbar */
 .top-bar{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;text-align:center;padding:10px 20px;font-size:14px;font-weight:600;position:fixed;top:0;width:100%;z-index:1000;}
 .navbar{background:rgba(10, 37, 64, 0.95);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,0.1);position:fixed;top:41px;width:100%;z-index:1000;}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
@@ -29,7 +28,6 @@ ul{list-style:none;}
 .nav-links a:hover,.nav-links a.active{color:var(--secondary);}
 .nav-links a.active::after{content:'';position:absolute;bottom:-6px;right:0;left:0;height:3px;background:var(--accent);border-radius:2px;}
 .menu-toggle{display:none;font-size:22px;background:none;border:none;color:#fff;cursor:pointer;}
-
 .contact-section { position: relative; width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle at center, #143a5e 0%, #0A2540 100%); overflow: hidden; padding: 120px 20px 80px; }
 .globe-bg { position: absolute; width: 700px; height: 700px; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800'); background-size: cover; opacity: 0.15; animation: rotateGlobe 30s linear infinite; box-shadow: 0 0 100px rgba(0, 180, 216, 0.2); }
 @keyframes rotateGlobe { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
@@ -53,10 +51,8 @@ ul{list-style:none;}
 .card-wa:hover .btn-contact { background: #25D366; color: #000; }
 .card-tiktok:hover .btn-contact { background: #fff; color: #000; }
 .card-email:hover .btn-contact { background: var(--accent); color: #000; }
-
 .footer{position:relative; width:100%; background:#051320; border-top:1px solid rgba(255, 255, 255, 0.1); color:#fff;padding:20px 0;text-align:center; display:flex; justify-content:center; align-items:center; gap:20px;}
 .footer p{opacity:.8;font-size:13px; margin:0;}
-
 .floating-social { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
 .social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
 .social-btn:hover { transform: scale(1.1) translateY(-3px); }
@@ -64,7 +60,6 @@ ul{list-style:none;}
 .btn-tiktok { background: #000; border: 2px solid #fff; color: #fff;}
 .btn-email { background: var(--accent); color: #000; }
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
-
 @media(max-width:1000px){
   .contact-section { padding: 100px 20px 80px; }
   .globe-bg { width: 400px; height: 400px; }
@@ -73,36 +68,17 @@ ul{list-style:none;}
   .footer { flex-direction: column; gap: 5px; }
 }
 @media(max-width:900px){
-  /* Mobile menu */
   .menu-toggle{display:block;}
-  .nav-links{
-    position:absolute;
-    top:100%;
-    right:0;
-    left:0;
-    background:rgba(10,37,64,0.98);
-    backdrop-filter:blur(15px);
-    flex-direction:column;
-    gap:0;
-    max-height:0;
-    overflow:hidden;
-    transition:max-height 0.4s ease;
-  }
+  .nav-links{ position:absolute; top:100%; right:0; left:0; background:rgba(10,37,64,0.98); backdrop-filter:blur(15px); flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
   .nav-links.show{max-height:500px;}
   .nav-links li{width:100%;}
-  .nav-links a{
-    display:block;
-    padding:15px 20px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
+  .nav-links a{ display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
   .nav-links a.active::after{display:none;}
 }
 </style>
 </head>
 <body>
-
 <div class="top-bar"><i class="fa-solid fa-circle-check"></i> أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية</div>
-
 <nav class="navbar">
   <div class="container nav-inner">
     <a href="index.html" class="logo">
@@ -120,7 +96,6 @@ ul{list-style:none;}
     </ul>
   </div>
 </nav>
-
 <section class="contact-section">
   <div class="globe-bg"></div>
   <div class="contact-cards">
@@ -143,7 +118,8 @@ ul{list-style:none;}
       <div class="btn-contact"><i class="fa-brands fa-tiktok"></i> تابعنا على تيك توك</div>
     </a>
 
-    <a href="mailto:cftravel52@gmail.com" class="contact-card card-email">
+    <!-- تم تعديل رابط الإيميل لفتح جيميل مباشرة -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="contact-card card-email">
       <div>
         <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
         <h3>البريد الإلكتروني</h3>
@@ -154,23 +130,18 @@ ul{list-style:none;}
 
   </div>
 </section>
-
 <footer class="footer">
   <p>© 2025 CF Travel — جميع الحقوق محفوظة</p>
   <p style="direction: ltr; display: flex; align-items: center; gap: 5px;"><i class="fa-brands fa-whatsapp"></i> +7 985 199 6819</p>
 </footer>
-
 <div class="floating-social">
   <a href="https://wa.me/79851996819" class="social-btn btn-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
   <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" class="social-btn btn-tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-  <a href="mailto:cftravel52@gmail.com" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
 </div>
-
 <script>
-// كود فتح وقفل قائمة الموبايل
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
-
 if (menuToggle) {
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
