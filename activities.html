@@ -31,9 +31,10 @@ ul{list-style:none;}
 .showroom-section { position: relative; width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 100px; padding-bottom: 50px; overflow: hidden; }
 .city-title { font-size: 32px; font-weight: 800; color: var(--accent); margin: 40px 0 20px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 15px; text-shadow: 0 0 20px rgba(255, 183, 3, 0.5); }
 .city-title span { height: 2px; width: 80px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
-.carousel-container { position: relative; width: 100%; height: 500px; display: flex; justify-content: center; align-items: center; perspective: 1200px; }
-.carousel-track { position: relative; width: 320px; height: 450px; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
-.show-card { position: absolute; top: 0; left: 0; width: 320px; height: 450px; border-radius: 20px; overflow: hidden; background: #000; border: 2px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px rgba(0,0,0,0.5); transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); transform-origin: center center; cursor: pointer; }
+.notice-text { text-align: center; color: #ff4757; font-weight: 800; margin-bottom: 20px; font-size: 16px; }
+.carousel-container { position: relative; width: 100%; height: 550px; display: flex; justify-content: center; align-items: center; perspective: 1200px; }
+.carousel-track { position: relative; width: 340px; height: 480px; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+.show-card { position: absolute; top: 0; left: 0; width: 340px; height: 480px; border-radius: 20px; overflow: hidden; background: #000; border: 2px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px rgba(0,0,0,0.5); transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); transform-origin: center center; cursor: pointer; }
 .show-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
 .show-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,37,64,0.98) 0%, rgba(10,37,64,0.4) 60%, transparent 100%); transition: background 0.4s; }
 .card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 25px 20px; z-index: 2; text-align: center; transform: translateY(20px); opacity: 0; transition: all 0.5s; }
@@ -58,8 +59,10 @@ ul{list-style:none;}
 .btn-email { background: var(--accent); color: #000; }
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
 @media(max-width:900px){
-  .carousel-track { width: 260px; height: 380px; }
-  .show-card { width: 260px; height: 380px; }
+  .carousel-track { width: 280px; height: 420px; }
+  .show-card { width: 280px; height: 420px; }
+  .card-info h3 { font-size: 18px; }
+  .card-info p { font-size: 13px; }
   .nav-btn { width: 45px; height: 45px; font-size: 18px; }
   .nav-prev { right: 2%; }
   .nav-next { left: 2%; }
@@ -93,54 +96,60 @@ ul{list-style:none;}
     </ul>
   </div>
 </nav>
+
+<!-- قسم فعاليات موسكو -->
 <section class="showroom-section">
   <div class="city-title"><span></span><i class="fa-solid fa-building-columns"></i> فعاليات موسكو <span></span></div>
+  <div class="notice-text">‼️ الفعاليات أسعارها تختلف حسب الموسم ‼️</div>
   <div class="carousel-container">
     <button class="nav-btn nav-prev" onclick="moveMoscow(-1)"><i class="fa-solid fa-chevron-right"></i></button>
     <button class="nav-btn nav-next" onclick="moveMoscow(1)"><i class="fa-solid fa-chevron-left"></i></button>
     <div class="carousel-track" id="track-moscow"></div>
   </div>
 </section>
-<section class="showroom-section" style="padding-top: 0;">
-  <div class="city-title"><span></span><i class="fa-solid fa-water"></i> فعاليات سوتشي <span></span></div>
-  <div class="carousel-container">
-    <button class="nav-btn nav-prev" onclick="moveSochi(-1)"><i class="fa-solid fa-chevron-right"></i></button>
-    <button class="nav-btn nav-next" onclick="moveSochi(1)"><i class="fa-solid fa-chevron-left"></i></button>
-    <div class="carousel-track" id="track-sochi"></div>
-  </div>
-</section>
+
 <footer class="footer">
   <p>© 2025 CF Travel — جميع الحقوق محفوظة</p>
   <p style="direction: ltr; display: flex; align-items: center; gap: 5px;"><i class="fa-brands fa-whatsapp"></i> +7 985 122 6819</p>
 </footer>
+
 <div class="floating-social">
   <a href="https://wa.me/79851226819" class="social-btn btn-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
   <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" class="social-btn btn-tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
 </div>
+
 <script>
 const WHATSAPP_NUMBER = "79851226819"; 
 const COMPANY_NAME = "CF Travel";
+
 function bookActivity(activityName) {
   const msg = `مرحباً ${COMPANY_NAME}،\nأرغب في حجز فعالية: ${activityName}\nالتاريخ: \nعدد الأفراد: \nوشكراً.`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
 }
+
+// قائمة فعاليات موسكو (بعد حذف الدلافين والزحليقة الصيفية)
 const moscowActivities = [
-  { name:"المنطاد", img:"images/balloon.jpg", desc:"تجربة رائعة للطيران فوق موسكو." },
-  { name:"رحلة الهليكوبتر", img:"images/helicopter.jpg", desc:"رحلة جوية سريعة على متن هليكوبتر." },
-  { name:"التجربة العسكرية", img:"images/tank.jpg", desc:"تجربة فريدة لركوب الدبابات." },
-  { name:"دريفت السيارات", img:"images/drift.jpg", desc:"تجربة قيادة مثيرة مع مدرب." },
+  { name:"ركوب المنطاد", img:"images/balloon.jpg", desc:"تجربة رائعة للطيران فوق موسكو." },
+  { name:"رحلة هيلكوبتر", img:"images/helicopter.jpg", desc:"طائرة Robinson – لعدة أشخاص (ربع ساعة)." },
+  { name:"التجربة العسكرية", img:"images/military.jpg", desc:"تجربة فريدة (مدة ساعتين ونصف)." },
+  { name:"قيادة الدبابة العملاقة", img:"images/tank.jpg", desc:"ساعة كاملة – لعدة أشخاص." },
+  { name:"رحلة بالطائرة", img:"images/cessna.jpg", desc:"طائرة Cessna – ربع ساعة." },
+  { name:"الدبابات الرباعية", img:"images/quad-bikes.jpg", desc:"مدة ساعة من المتعة." },
+  { name:"دريفت السيارات", img:"images/drift.jpg", desc:"مع مدرب محترف (ساعة كاملة)." },
+  { name:"ركوب عربات الهاسكي", img:"images/husky.jpg", desc:"تجربة ممتعة مع كلاب الهاسكي." },
   { name:"ركوب الخيل", img:"images/horse.jpg", desc:"تجربة ركوب الخيل في الطبيعة." },
-  { name:"جولة في الكرملين", img:"images/kremlin-tour.jpg", desc:"جولة سياحية بمرشد عربي." },
-  { name:"السيرك الروسي", img:"images/circus.jpg", desc:"مشاهدة أشهر عروض السيرك." }
+  { name:"التفاعل مع الحيوانات", img:"images/animals.jpg", desc:"الدب توم – النمر." },
+  { name:"الكارتينج", img:"images/karting.jpg", desc:"مدة ربع ساعة من السرعة." },
+  { name:"التلفريك", img:"images/cablecar.jpg", desc:"استمتع بإطلالات بانورامية." },
+  { name:"الزبلاين", img:"images/zipline.jpg", desc:"مغامرة الهبوط من أعلى المرتفعات." },
+  { name:"العجلة الدوارة", img:"images/ferris-wheel.jpg", desc:"إطلالة ساحرة على المدينة." },
+  { name:"بانوراما موسكو سيتي", img:"images/moscow-city.jpg", desc:"أعلى نقطة لمشاهدة موسكو." },
+  { name:"جولة في الكرملين", img:"images/kremlin-tour.jpg", desc:"تذكرة مع مرشد سياحي عربي." },
+  { name:"السيرك الروسي", img:"images/circus.jpg", desc:"مشاهدة أشهر عروض السيرك." },
+  { name:"رحلة كروز نهرية", img:"images/river-cruise.jpg", desc:"حسب الفئة – جولة في نهر موسكو." }
 ];
-const sochiActivities = [
-  { name:"تلفريك روزا خوتور", img:"images/sochi-cablecar.jpg", desc:"صعود الجبال والاستمتاع بإطلالات." },
-  { name:"رحلة جبال كراسنايا بوليانا", img:"images/sochi-mountains.jpg", desc:"جولة يوم كامل في منتجعات الجبال." },
-  { name:"سوتشي بارك", img:"images/sochi-park.jpg", desc:"أكبر مدينة ملاهي في روسيا." },
-  { name:"رحلة بحرية", img:"images/sochi-yacht.jpg", desc:"رحلة بحرية على متن يخت خاص." },
-  { name:"Skypark سوتشي", img:"images/sochi-skypark.jpg", desc:"أشهر وجهة للمغامرات في سوتشي." }
-];
+
 function createCard(act, index) {
   return `
     <div class="show-card" onclick="bookActivity('${act.name}')">
@@ -155,6 +164,7 @@ function createCard(act, index) {
     </div>
   `;
 }
+
 function updateWheel(activities, activeIndex, containerId) {
   const cards = document.querySelectorAll(`#${containerId} .show-card`);
   cards.forEach((card, index) => {
@@ -182,6 +192,8 @@ function updateWheel(activities, activeIndex, containerId) {
     card.style.zIndex = zIndex;
   });
 }
+
+// تشغيل موسكو
 let moscowIndex = 0;
 document.getElementById("track-moscow").innerHTML = moscowActivities.map((act, i) => createCard(act, i)).join("");
 updateWheel(moscowActivities, moscowIndex, "track-moscow");
@@ -189,13 +201,7 @@ function moveMoscow(dir) {
   moscowIndex = (moscowIndex + dir + moscowActivities.length) % moscowActivities.length;
   updateWheel(moscowActivities, moscowIndex, "track-moscow");
 }
-let sochiIndex = 0;
-document.getElementById("track-sochi").innerHTML = sochiActivities.map((act, i) => createCard(act, i)).join("");
-updateWheel(sochiActivities, sochiIndex, "track-sochi");
-function moveSochi(dir) {
-  sochiIndex = (sochiIndex + dir + sochiActivities.length) % sochiActivities.length;
-  updateWheel(sochiActivities, sochiIndex, "track-sochi");
-}
+
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 if (menuToggle) {
@@ -206,7 +212,8 @@ if (menuToggle) {
     else { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
   });
 }
-// إضافة ميزة السحب (Swipe) لصفحة الفعاليات
+
+// إضافة ميزة السحب (Swipe) للفعاليات
 function enableSwipe(containerSelector, moveFunc) {
   const container = document.querySelector(containerSelector);
   if(!container) return;
@@ -225,11 +232,7 @@ function enableSwipe(containerSelector, moveFunc) {
   }, {passive: true});
 }
 setTimeout(() => {
-  const moscowContainers = document.querySelectorAll('.carousel-container');
-  if (moscowContainers.length >= 2) {
-    enableSwipe('.carousel-container:nth-of-type(1)', moveMoscow);
-    enableSwipe('.carousel-container:nth-of-type(2)', moveSochi);
-  }
+  enableSwipe('.carousel-container', moveMoscow);
 }, 1000); 
 </script>
 </body>
