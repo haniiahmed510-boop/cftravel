@@ -65,6 +65,18 @@ ul{list-style:none;}
 .nav-links a:hover,.nav-links a.active{color:var(--secondary);}
 .nav-links a.active::after{content:'';position:absolute;bottom:-6px;right:0;left:0;height:3px;background:var(--accent);border-radius:2px;}
 .menu-toggle{display:none;font-size:22px;background:none;border:none;color:#fff;cursor:pointer;}
+
+/* تصميم أزرار اللغة (أعلام) */
+.lang-switcher { display: flex; gap: 8px; margin-left: 15px; }
+.lang-switcher button {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
+  padding: 0; border-radius: 50%;
+  cursor: pointer; font-size: 20px;
+  transition: 0.3s; display: flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px;
+}
+.lang-switcher button:hover { background: var(--secondary); transform: scale(1.1); }
+
 .page-bg { background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1600') center/cover fixed; min-height: 100vh; }
 .hero-section { padding: 180px 20px 80px; text-align: center; }
 .hero-logo { width: 140px; height: 140px; border-radius: 50%; margin-bottom: 25px; box-shadow: 0 10px 40px rgba(0, 180, 216, 0.3); border: 4px solid var(--secondary); object-fit: cover;}
@@ -100,16 +112,6 @@ ul{list-style:none;}
 .btn-email { background: var(--accent); color: #000; }
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
 
-/* تصميم أزرار اللغة */
-.lang-switcher { display: flex; gap: 10px; margin-left: 20px; }
-.lang-switcher button {
-  background: transparent; border: 1px solid var(--secondary);
-  color: var(--secondary); padding: 5px 10px; border-radius: 5px;
-  cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: bold; font-size: 14px;
-  transition: 0.3s;
-}
-.lang-switcher button:hover { background: var(--secondary); color: #000; }
-
 @media(max-width:900px){
   .hero-section { padding-top: 140px; }
   .services-grid { grid-template-columns: 1fr; }
@@ -135,11 +137,10 @@ ul{list-style:none;}
       <div class="nav-logo-text"><span>Travel</span> CF</div>
     </a>
     
-    <!-- أزرار تغيير اللغة -->
     <div class="lang-switcher">
-      <button onclick="changeLanguage('ar')">عربي</button>
-      <button onclick="changeLanguage('en')">EN</button>
-      <button onclick="changeLanguage('zh')">中文</button>
+      <button onclick="changeLanguage('ar')" title="العربية">🇸🇦</button>
+      <button onclick="changeLanguage('en')" title="English">🇺🇸</button>
+      <button onclick="changeLanguage('zh')" title="中文">🇨🇳</button>
     </div>
 
     <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
@@ -199,90 +200,56 @@ ul{list-style:none;}
 </div>
 
 <script>
-// القاموس اللي فيه كل اللغات
 const translations = {
   ar: {
     top_bar: "أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية",
-    nav_home: "الرئيسية",
-    nav_hotels: "الفنادق",
-    nav_activities: "الفعاليات",
-    nav_cars: "المواصلات",
-    nav_calc: "حاسبة السفر",
-    nav_contact: "اتصل بنا",
+    nav_home: "الرئيسية", nav_hotels: "الفنادق", nav_activities: "الفعاليات", nav_cars: "المواصلات", nav_calc: "حاسبة السفر", nav_contact: "اتصل بنا",
     hero_title: "مرحباً بك في <span>CF Travel</span>",
     hero_desc: "شريكك الموثوق لاكتشاف جمال روسيا. نصنع لك ذكريات لا تُنسى بخبرة تمتد لأكثر من 5 سنوات.",
     about_title: "من نحن وماذا نقدم؟",
     about_p1: "<strong>شركة CF Travel للسياحة في روسيا</strong> هي شركة سياحة متخصصة <strong>حصرياً في تنظيم الرحلات إلى روسيا</strong> (موسكو وسوتشي). نحن لسنا مجرد وكيل حجز، بل نحن فريق متواجد على أرض الواقع، نعيش في روسيا ونعرف أدق تفاصيلها وشوارعها.",
     about_p2: "بفضل خبرتنا الطويلة، نجحنا في خدمة <strong>آلاف العملاء العرب</strong> الذين وضعوا ثقتهم فينا. نتعامل مع شبكة واسعة من الفنادق وشركات النقل المحلية، مما يتيح لنا تقديم <strong>أفضل الأسعار</strong> التي تقل عن السعر الرسمي، مع ضمان الأمان والراحة التامة.",
-    services_title: "اكتشف <span>خدماتنا</span>",
-    services_desc: "كل ما تحتاجه لرحلة مثالية إلى روسيا",
-    srv_hotels_title: "فنادق موسكو وسوتشي",
-    srv_hotels_desc: "أفضل الفنادق بأسعار تنافسية",
-    srv_act_title: "فعاليات ومغامرات",
-    srv_act_desc: "مغامرات لا تُنسى في العاصمة",
-    srv_cars_title: "خدمات المواصلات",
-    srv_cars_desc: "سائق عربي محترف لخدمتكم",
-    srv_calc_title: "حاسبة ميزانية السفر",
-    srv_calc_desc: "احسب تكلفة رحلتك بنفسك",
+    services_title: "اكتشف <span>خدماتنا</span>", services_desc: "كل ما تحتاجه لرحلة مثالية إلى روسيا",
+    srv_hotels_title: "فنادق موسكو وسوتشي", srv_hotels_desc: "أفضل الفنادق بأسعار تنافسية",
+    srv_act_title: "فعاليات ومغامرات", srv_act_desc: "مغامرات لا تُنسى في العاصمة",
+    srv_cars_title: "خدمات المواصلات", srv_cars_desc: "سائق عربي محترف لخدمتكم",
+    srv_calc_title: "حاسبة ميزانية السفر", srv_calc_desc: "احسب تكلفة رحلتك بنفسك",
     footer_rights: "جميع الحقوق محفوظة"
   },
   en: {
     top_bar: "Prices lower than official rates — Instant booking",
-    nav_home: "Home",
-    nav_hotels: "Hotels",
-    nav_activities: "Activities",
-    nav_cars: "Transport",
-    nav_calc: "Travel Calculator",
-    nav_contact: "Contact Us",
+    nav_home: "Home", nav_hotels: "Hotels", nav_activities: "Activities", nav_cars: "Transport", nav_calc: "Travel Calculator", nav_contact: "Contact Us",
     hero_title: "Welcome to <span>CF Travel</span>",
     hero_desc: "Your trusted partner to discover the beauty of Russia. We create unforgettable memories with over 5 years of experience.",
     about_title: "Who We Are & What We Offer",
     about_p1: "<strong>CF Travel Russia</strong> is a travel agency specialized <strong>exclusively in organizing trips to Russia</strong> (Moscow and Sochi). We are not just a booking agent; we are a team on the ground, living in Russia and knowing its streets and details.",
     about_p2: "Thanks to our long experience, we have successfully served <strong>thousands of Arab clients</strong> who trusted us. We deal with a wide network of hotels and local transport companies, allowing us to offer the <strong>best prices</strong> below official rates, with guaranteed safety and comfort.",
-    services_title: "Discover <span>Our Services</span>",
-    services_desc: "Everything you need for a perfect trip to Russia",
-    srv_hotels_title: "Moscow & Sochi Hotels",
-    srv_hotels_desc: "Best hotels at competitive prices",
-    srv_act_title: "Activities & Adventures",
-    srv_act_desc: "Unforgettable adventures in the capital",
-    srv_cars_title: "Transport Services",
-    srv_cars_desc: "Professional Arab drivers at your service",
-    srv_calc_title: "Travel Budget Calculator",
-    srv_calc_desc: "Calculate your trip cost yourself",
+    services_title: "Discover <span>Our Services</span>", services_desc: "Everything you need for a perfect trip to Russia",
+    srv_hotels_title: "Moscow & Sochi Hotels", srv_hotels_desc: "Best hotels at competitive prices",
+    srv_act_title: "Activities & Adventures", srv_act_desc: "Unforgettable adventures in the capital",
+    srv_cars_title: "Transport Services", srv_cars_desc: "Professional Arab drivers at your service",
+    srv_calc_title: "Travel Budget Calculator", srv_calc_desc: "Calculate your trip cost yourself",
     footer_rights: "All rights reserved"
   },
   zh: {
     top_bar: "价格低于官方价格 — 即时预订",
-    nav_home: "首页",
-    nav_hotels: "酒店",
-    nav_activities: "活动",
-    nav_cars: "交通",
-    nav_calc: "旅行计算器",
-    nav_contact: "联系我们",
+    nav_home: "首页", nav_hotels: "酒店", nav_activities: "活动", nav_cars: "交通", nav_calc: "旅行计算器", nav_contact: "联系我们",
     hero_title: "欢迎来到 <span>CF Travel</span>",
     hero_desc: "您探索俄罗斯之美的可靠伙伴。凭借超过 5 年的经验，我们为您创造难忘的回忆。",
     about_title: "我们是谁以及我们提供什么",
     about_p1: "<strong>CF Travel Russia</strong> 是一家专门<strong>组织俄罗斯旅行</strong>的旅行社（莫斯科和索契）。我们不仅仅是预订代理；我们是在地团队，住在俄罗斯，了解其街道和细节。",
     about_p2: "凭借我们长期的经验，我们成功服务了<strong>成千上万的阿拉伯客户</strong>，他们信任我们。我们与广泛的酒店和当地运输公司网络打交道，这使我们能够提供低于官方价格的<strong>最优惠价格</strong>，并保证安全与舒适。",
-    services_title: "探索 <span>我们的服务</span>",
-    services_desc: "您在俄罗斯完美旅行所需的一切",
-    srv_hotels_title: "莫斯科和索契酒店",
-    srv_hotels_desc: "最优惠价格的酒店",
-    srv_act_title: "活动与冒险",
-    srv_act_desc: "首都难忘的冒险",
-    srv_cars_title: "交通服务",
-    srv_cars_desc: "专业的阿拉伯司机为您服务",
-    srv_calc_title: "旅行预算计算器",
-    srv_calc_desc: "自己计算旅行费用",
+    services_title: "探索 <span>我们的服务</span>", services_desc: "您在俄罗斯完美旅行所需的一切",
+    srv_hotels_title: "莫斯科和索契酒店", srv_hotels_desc: "最优惠价格的酒店",
+    srv_act_title: "活动与冒险", srv_act_desc: "首都难忘的冒险",
+    srv_cars_title: "交通服务", srv_cars_desc: "专业的阿拉伯司机为您服务",
+    srv_calc_title: "旅行预算计算器", srv_calc_desc: "自己计算旅行费用",
     footer_rights: "版权所有"
   }
 };
 
 function changeLanguage(lang) {
-  // حفظ اللغة في المتصفح
   localStorage.setItem('selectedLang', lang);
-  
-  // تغيير اتجاه الصفحة
   if(lang === 'ar') {
     document.documentElement.dir = 'rtl';
     document.documentElement.lang = 'ar';
@@ -290,8 +257,6 @@ function changeLanguage(lang) {
     document.documentElement.dir = 'ltr';
     document.documentElement.lang = lang;
   }
-
-  // تغيير كل النصوص اللي فيها data-i18n
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
     if(translations[lang] && translations[lang][key]) {
@@ -300,26 +265,19 @@ function changeLanguage(lang) {
   });
 }
 
-// تشغيل اللغة الافتراضية (العربية) لما الصفحة تفتح
 window.onload = function() {
   const savedLang = localStorage.getItem('selectedLang') || 'ar';
   changeLanguage(savedLang);
 };
 
-// كود قائمة الموبايل
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 if (menuToggle) {
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
     const icon = menuToggle.querySelector('i');
-    if (navLinks.classList.contains('show')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-xmark');
-    } else {
-      icon.classList.remove('fa-xmark');
-      icon.classList.add('fa-bars');
-    }
+    if (navLinks.classList.contains('show')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); } 
+    else { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
   });
 }
 </script>
