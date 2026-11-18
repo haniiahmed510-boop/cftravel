@@ -7,18 +7,14 @@
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="images/logo.png" type="image/png" sizes="48x48" />
 <link rel="apple-touch-icon" href="images/logo.png" />
-
 <meta name="description" content="شركة CF Travel للسياحة في روسيا هي شريكك الموثوق لتنظيم الرحلات. نوفر حجز فنادق موسكو وسوتشي بأقل من السعر الرسمي، سائق عربي، وحجوزات فعاليات فورية." />
 <meta name="keywords" content="شركة CF Travel للسياحة في روسيا, سياحة روسيا, شركة سياحة في موسكو, حجز فنادق سوتشي, سائق عربي في روسيا, فعاليات موسكو" />
 <meta name="author" content="CF Travel" />
-
 <meta property="og:title" content="شركة CF Travel للسياحة في روسيا" />
 <meta property="og:description" content="احجز فنادق موسكو وسوتشي بأقل من السعر الرسمي، مع سائق عربي وحجوزات فعاليات فورية." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://cftravel.site/images/logo.png" />
 <meta property="og:url" content="https://cftravel.site/" />
-
-<!-- بيانات الشركة واسم الموقع لجوجل -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,14 +43,13 @@
   ]
 }
 </script>
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{--primary:#0A2540;--secondary:#00B4D8;--accent:#FFB703;--text:#F8F9FA;--muted:#9CA3AF;}
 html{scroll-behavior:smooth;}
-body{font-family:'Cairo',sans-serif;color:var(--text);background:var(--primary);line-height:1.6;direction:rtl;overflow-x:hidden;}
+body{font-family:'Cairo',sans-serif;color:var(--text);background:var(--primary);line-height:1.6;direction:rtl;overflow-x:hidden; transition: all 0.3s ease;}
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
 .container{max-width:1300px;margin:0 auto;padding:0 20px;}
@@ -104,6 +99,17 @@ ul{list-style:none;}
 .btn-tiktok { background: #000; border: 2px solid #fff; color: #fff;}
 .btn-email { background: var(--accent); color: #000; }
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
+/* تصميم أزرار اللغة */
+.lang-switcher { display: flex; gap: 10px; margin-left: 20px; }
+.lang-switcher button {
+  background: transparent; border: 1px solid var(--secondary);
+  color: var(--secondary); padding: 5px 10px; border-radius: 5px;
+  cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: bold; font-size: 14px;
+  transition: 0.3s;
+}
+.lang-switcher button:hover { background: var(--secondary); color: #000; }
+
 @media(max-width:900px){
   .hero-section { padding-top: 140px; }
   .services-grid { grid-template-columns: 1fr; }
@@ -115,65 +121,75 @@ ul{list-style:none;}
   .nav-links li{width:100%;}
   .nav-links a{ display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
   .nav-links a.active::after{display:none;}
+  .nav-inner { flex-wrap: wrap; }
+  .lang-switcher { margin: 10px 0; width: 100%; justify-content: center; }
 }
 </style>
 </head>
 <body>
-<div class="top-bar"><i class="fa-solid fa-circle-check"></i> أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية</div>
+<div class="top-bar"><i class="fa-solid fa-circle-check"></i> <span data-i18n="top_bar">أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية</span></div>
 <nav class="navbar">
   <div class="container nav-inner">
     <a href="index.html" class="logo">
       <img src="images/logo.png" alt="CF Travel Logo" class="nav-logo-img" onerror="this.style.display='none'">
       <div class="nav-logo-text"><span>Travel</span> CF</div>
     </a>
+    
+    <!-- أزرار تغيير اللغة -->
+    <div class="lang-switcher">
+      <button onclick="changeLanguage('ar')">عربي</button>
+      <button onclick="changeLanguage('en')">EN</button>
+      <button onclick="changeLanguage('zh')">中文</button>
+    </div>
+
     <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">الرئيسية</a></li>
-      <li><a href="hotels.html">الفنادق</a></li>
-      <li><a href="activities.html">الفعاليات</a></li>
-      <li><a href="cars.html">المواصلات</a></li>
-      <li><a href="calculator.html">حاسبة السفر</a></li>
-      <li><a href="contact.html">اتصل بنا</a></li>
+      <li><a href="index.html" class="active" data-i18n="nav_home">الرئيسية</a></li>
+      <li><a href="hotels.html" data-i18n="nav_hotels">الفنادق</a></li>
+      <li><a href="activities.html" data-i18n="nav_activities">الفعاليات</a></li>
+      <li><a href="cars.html" data-i18n="nav_cars">المواصلات</a></li>
+      <li><a href="calculator.html" data-i18n="nav_calc">حاسبة السفر</a></li>
+      <li><a href="contact.html" data-i18n="nav_contact">اتصل بنا</a></li>
     </ul>
   </div>
 </nav>
 <div class="page-bg">
   <section class="hero-section">
     <img src="images/logo.png" alt="CF Travel" class="hero-logo" onerror="this.style.background='#0A2540'">
-    <h1>مرحباً بك في <span>CF Travel</span></h1>
-    <p>شريكك الموثوق لاكتشاف جمال روسيا. نصنع لك ذكريات لا تُنسى بخبرة تمتد لأكثر من 5 سنوات.</p>
+    <h1 data-i18n="hero_title">مرحباً بك في <span>CF Travel</span></h1>
+    <p data-i18n="hero_desc">شريكك الموثوق لاكتشاف جمال روسيا. نصنع لك ذكريات لا تُنسى بخبرة تمتد لأكثر من 5 سنوات.</p>
   </section>
   <section class="about-section">
     <div class="about-card">
-      <h2>من نحن وماذا نقدم؟</h2>
-      <p><strong>شركة CF Travel للسياحة في روسيا</strong> هي شركة سياحة متخصصة <strong>حصرياً في تنظيم الرحلات إلى روسيا</strong> (موسكو وسوتشي). نحن لسنا مجرد وكيل حجز، بل نحن فريق متواجد على أرض الواقع، نعيش في روسيا ونعرف أدق تفاصيلها وشوارعها.</p>
-      <p>بفضل خبرتنا الطويلة، نجحنا في خدمة <strong>آلاف العملاء العرب</strong> الذين وضعوا ثقتهم فينا. نتعامل مع شبكة واسعة من الفنادق وشركات النقل المحلية، مما يتيح لنا تقديم <strong>أفضل الأسعار</strong> التي تقل عن السعر الرسمي، مع ضمان الأمان والراحة التامة.</p>
+      <h2 data-i18n="about_title">من نحن وماذا نقدم؟</h2>
+      <p data-i18n="about_p1"><strong>شركة CF Travel للسياحة في روسيا</strong> هي شركة سياحة متخصصة <strong>حصرياً في تنظيم الرحلات إلى روسيا</strong> (موسكو وسوتشي). نحن لسنا مجرد وكيل حجز، بل نحن فريق متواجد على أرض الواقع، نعيش في روسيا ونعرف أدق تفاصيلها وشوارعها.</p>
+      <p data-i18n="about_p2">بفضل خبرتنا الطويلة، نجحنا في خدمة <strong>آلاف العملاء العرب</strong> الذين وضعوا ثقتهم فينا. نتعامل مع شبكة واسعة من الفنادق وشركات النقل المحلية، مما يتيح لنا تقديم <strong>أفضل الأسعار</strong> التي تقل عن السعر الرسمي، مع ضمان الأمان والراحة التامة.</p>
     </div>
   </section>
   <section class="services-section">
-    <div class="section-title"><h2>اكتشف <span>خدماتنا</span></h2><p>كل ما تحتاجه لرحلة مثالية إلى روسيا</p></div>
+    <div class="section-title"><h2 data-i18n="services_title">اكتشف <span>خدماتنا</span></h2><p data-i18n="services_desc">كل ما تحتاجه لرحلة مثالية إلى روسيا</p></div>
     <div class="services-grid">
       <div class="service-card" onclick="window.location.href='hotels.html'">
         <div class="service-cover"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="حجز فنادق"></div>
-        <div class="service-info"><h3>فنادق موسكو وسوتشي</h3><p>أفضل الفنادق بأسعار تنافسية</p></div>
+        <div class="service-info"><h3 data-i18n="srv_hotels_title">فنادق موسكو وسوتشي</h3><p data-i18n="srv_hotels_desc">أفضل الفنادق بأسعار تنافسية</p></div>
       </div>
       <div class="service-card" onclick="window.location.href='activities.html'">
         <div class="service-cover"><img src="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?w=800" alt="حجز فعاليات"></div>
-        <div class="service-info"><h3>فعاليات ومغامرات</h3><p>مغامرات لا تُنسى في العاصمة</p></div>
+        <div class="service-info"><h3 data-i18n="srv_act_title">فعاليات ومغامرات</h3><p data-i18n="srv_act_desc">مغامرات لا تُنسى في العاصمة</p></div>
       </div>
       <div class="service-card" onclick="window.location.href='cars.html'">
         <div class="service-cover"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" alt="سائق عربي"></div>
-        <div class="service-info"><h3>خدمات المواصلات</h3><p>سائق عربي محترف لخدمتكم</p></div>
+        <div class="service-info"><h3 data-i18n="srv_cars_title">خدمات المواصلات</h3><p data-i18n="srv_cars_desc">سائق عربي محترف لخدمتكم</p></div>
       </div>
       <div class="service-card" onclick="window.location.href='calculator.html'">
         <div class="service-cover"><img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800" alt="حاسبة السفر"></div>
-        <div class="service-info"><h3>حاسبة ميزانية السفر</h3><p>احسب تكلفة رحلتك بنفسك</p></div>
+        <div class="service-info"><h3 data-i18n="srv_calc_title">حاسبة ميزانية السفر</h3><p data-i18n="srv_calc_desc">احسب تكلفة رحلتك بنفسك</p></div>
       </div>
     </div>
   </section>
 </div>
 <footer class="footer">
-  <p>© 2025 CF Travel — جميع الحقوق محفوظة</p>
+  <p>© 2025 CF Travel — <span data-i18n="footer_rights">جميع الحقوق محفوظة</span></p>
   <p style="direction: ltr; display: flex; align-items: center; gap: 5px;"><i class="fa-brands fa-whatsapp"></i> +7 985 122 6819</p>
 </footer>
 <div class="floating-social">
@@ -181,7 +197,116 @@ ul{list-style:none;}
   <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" class="social-btn btn-tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
 </div>
+
 <script>
+// القاموس اللي فيه كل اللغات
+const translations = {
+  ar: {
+    top_bar: "أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية",
+    nav_home: "الرئيسية",
+    nav_hotels: "الفنادق",
+    nav_activities: "الفعاليات",
+    nav_cars: "المواصلات",
+    nav_calc: "حاسبة السفر",
+    nav_contact: "اتصل بنا",
+    hero_title: "مرحباً بك في <span>CF Travel</span>",
+    hero_desc: "شريكك الموثوق لاكتشاف جمال روسيا. نصنع لك ذكريات لا تُنسى بخبرة تمتد لأكثر من 5 سنوات.",
+    about_title: "من نحن وماذا نقدم؟",
+    about_p1: "<strong>شركة CF Travel للسياحة في روسيا</strong> هي شركة سياحة متخصصة <strong>حصرياً في تنظيم الرحلات إلى روسيا</strong> (موسكو وسوتشي). نحن لسنا مجرد وكيل حجز، بل نحن فريق متواجد على أرض الواقع، نعيش في روسيا ونعرف أدق تفاصيلها وشوارعها.",
+    about_p2: "بفضل خبرتنا الطويلة، نجحنا في خدمة <strong>آلاف العملاء العرب</strong> الذين وضعوا ثقتهم فينا. نتعامل مع شبكة واسعة من الفنادق وشركات النقل المحلية، مما يتيح لنا تقديم <strong>أفضل الأسعار</strong> التي تقل عن السعر الرسمي، مع ضمان الأمان والراحة التامة.",
+    services_title: "اكتشف <span>خدماتنا</span>",
+    services_desc: "كل ما تحتاجه لرحلة مثالية إلى روسيا",
+    srv_hotels_title: "فنادق موسكو وسوتشي",
+    srv_hotels_desc: "أفضل الفنادق بأسعار تنافسية",
+    srv_act_title: "فعاليات ومغامرات",
+    srv_act_desc: "مغامرات لا تُنسى في العاصمة",
+    srv_cars_title: "خدمات المواصلات",
+    srv_cars_desc: "سائق عربي محترف لخدمتكم",
+    srv_calc_title: "حاسبة ميزانية السفر",
+    srv_calc_desc: "احسب تكلفة رحلتك بنفسك",
+    footer_rights: "جميع الحقوق محفوظة"
+  },
+  en: {
+    top_bar: "Prices lower than official rates — Instant booking",
+    nav_home: "Home",
+    nav_hotels: "Hotels",
+    nav_activities: "Activities",
+    nav_cars: "Transport",
+    nav_calc: "Travel Calculator",
+    nav_contact: "Contact Us",
+    hero_title: "Welcome to <span>CF Travel</span>",
+    hero_desc: "Your trusted partner to discover the beauty of Russia. We create unforgettable memories with over 5 years of experience.",
+    about_title: "Who We Are & What We Offer",
+    about_p1: "<strong>CF Travel Russia</strong> is a travel agency specialized <strong>exclusively in organizing trips to Russia</strong> (Moscow and Sochi). We are not just a booking agent; we are a team on the ground, living in Russia and knowing its streets and details.",
+    about_p2: "Thanks to our long experience, we have successfully served <strong>thousands of Arab clients</strong> who trusted us. We deal with a wide network of hotels and local transport companies, allowing us to offer the <strong>best prices</strong> below official rates, with guaranteed safety and comfort.",
+    services_title: "Discover <span>Our Services</span>",
+    services_desc: "Everything you need for a perfect trip to Russia",
+    srv_hotels_title: "Moscow & Sochi Hotels",
+    srv_hotels_desc: "Best hotels at competitive prices",
+    srv_act_title: "Activities & Adventures",
+    srv_act_desc: "Unforgettable adventures in the capital",
+    srv_cars_title: "Transport Services",
+    srv_cars_desc: "Professional Arab drivers at your service",
+    srv_calc_title: "Travel Budget Calculator",
+    srv_calc_desc: "Calculate your trip cost yourself",
+    footer_rights: "All rights reserved"
+  },
+  zh: {
+    top_bar: "价格低于官方价格 — 即时预订",
+    nav_home: "首页",
+    nav_hotels: "酒店",
+    nav_activities: "活动",
+    nav_cars: "交通",
+    nav_calc: "旅行计算器",
+    nav_contact: "联系我们",
+    hero_title: "欢迎来到 <span>CF Travel</span>",
+    hero_desc: "您探索俄罗斯之美的可靠伙伴。凭借超过 5 年的经验，我们为您创造难忘的回忆。",
+    about_title: "我们是谁以及我们提供什么",
+    about_p1: "<strong>CF Travel Russia</strong> 是一家专门<strong>组织俄罗斯旅行</strong>的旅行社（莫斯科和索契）。我们不仅仅是预订代理；我们是在地团队，住在俄罗斯，了解其街道和细节。",
+    about_p2: "凭借我们长期的经验，我们成功服务了<strong>成千上万的阿拉伯客户</strong>，他们信任我们。我们与广泛的酒店和当地运输公司网络打交道，这使我们能够提供低于官方价格的<strong>最优惠价格</strong>，并保证安全与舒适。",
+    services_title: "探索 <span>我们的服务</span>",
+    services_desc: "您在俄罗斯完美旅行所需的一切",
+    srv_hotels_title: "莫斯科和索契酒店",
+    srv_hotels_desc: "最优惠价格的酒店",
+    srv_act_title: "活动与冒险",
+    srv_act_desc: "首都难忘的冒险",
+    srv_cars_title: "交通服务",
+    srv_cars_desc: "专业的阿拉伯司机为您服务",
+    srv_calc_title: "旅行预算计算器",
+    srv_calc_desc: "自己计算旅行费用",
+    footer_rights: "版权所有"
+  }
+};
+
+function changeLanguage(lang) {
+  // حفظ اللغة في المتصفح
+  localStorage.setItem('selectedLang', lang);
+  
+  // تغيير اتجاه الصفحة
+  if(lang === 'ar') {
+    document.documentElement.dir = 'rtl';
+    document.documentElement.lang = 'ar';
+  } else {
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = lang;
+  }
+
+  // تغيير كل النصوص اللي فيها data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key]) {
+      element.innerHTML = translations[lang][key];
+    }
+  });
+}
+
+// تشغيل اللغة الافتراضية (العربية) لما الصفحة تفتح
+window.onload = function() {
+  const savedLang = localStorage.getItem('selectedLang') || 'ar';
+  changeLanguage(savedLang);
+};
+
+// كود قائمة الموبايل
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 if (menuToggle) {
