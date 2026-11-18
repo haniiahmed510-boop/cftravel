@@ -61,4 +61,298 @@ ul{list-style:none;}
 .nav-next { left: 10%; }
 .footer{position:relative; width:100%; background:rgba(5,12,21,0.95); border-top:1px solid rgba(255, 255, 255, 0.1); color:#fff;padding:20px 0;text-align:center; display:flex; justify-content:center; align-items:center; gap:20px;}
 .footer p{opacity:.8;font-size:13px; margin:0;}
-.floating-social { position: fixed; bottom: 30px; left: 30px; display
+.floating-social { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+.social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+.social-btn:hover { transform: scale(1.1) translateY(-3px); }
+.btn-wa { background: #25D366; box-shadow: 0 5px 20px rgba(37,211,102,0.4); animation: pulse 2s infinite; }
+.btn-tiktok { background: #000; border: 2px solid #fff; color: #fff;}
+.btn-email { background: var(--accent); color: #000; }
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
+@media(max-width:900px){
+  .carousel-track { width: 280px; height: 420px; }
+  .show-card { width: 280px; height: 420px; }
+  .card-info h3 { font-size: 18px; }
+  .card-info p { font-size: 13px; }
+  .nav-btn { width: 45px; height: 45px; font-size: 18px; }
+  .nav-prev { right: 2%; }
+  .nav-next { left: 2%; }
+  .footer { flex-direction: column; gap: 5px; }
+  .city-title { font-size: 24px; margin: 30px 0 15px; }
+  .menu-toggle{display:block;}
+  .nav-links{ position:absolute; top:100%; right:0; left:0; background:rgba(10,37,64,0.98); backdrop-filter:blur(15px); flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+  .nav-links.show{max-height:500px;}
+  .nav-links li{width:100%;}
+  .nav-links a{ display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .nav-links a.active::after{display:none;}
+  .nav-inner { flex-wrap: wrap; }
+  .lang-switcher { margin: 10px 0; width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+<div class="top-bar"><i class="fa-solid fa-circle-check"></i> <span data-i18n="top_bar">أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية</span></div>
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="CF Travel Logo" class="nav-logo-img" onerror="this.style.display='none'">
+      <div class="nav-logo-text"><span>Travel</span> CF</div>
+    </a>
+    
+    <div class="lang-switcher">
+      <button onclick="changeLanguage('ar')">عربي</button>
+      <button onclick="changeLanguage('en')">EN</button>
+      <button onclick="changeLanguage('zh')">中文</button>
+    </div>
+
+    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+      <li><a href="hotels.html" data-i18n="nav_hotels">الفنادق</a></li>
+      <li><a href="activities.html" class="active" data-i18n="nav_activities">الفعاليات</a></li>
+      <li><a href="cars.html" data-i18n="nav_cars">المواصلات</a></li>
+      <li><a href="calculator.html" data-i18n="nav_calc">حاسبة السفر</a></li>
+      <li><a href="contact.html" data-i18n="nav_contact">اتصل بنا</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="showroom-section">
+  <div class="city-title"><span></span><i class="fa-solid fa-building-columns"></i> <span data-i18n="moscow_act">فعاليات موسكو</span> <span></span></div>
+  <div class="notice-text" data-i18n="notice">‼️ الفعاليات أسعارها تختلف حسب الموسم ‼️</div>
+  <div class="carousel-container">
+    <button class="nav-btn nav-prev" onclick="moveMoscow(-1)"><i class="fa-solid fa-chevron-right"></i></button>
+    <button class="nav-btn nav-next" onclick="moveMoscow(1)"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="carousel-track" id="track-moscow"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 CF Travel — <span data-i18n="footer_rights">جميع الحقوق محفوظة</span></p>
+  <p style="direction: ltr; display: flex; align-items: center; gap: 5px;"><i class="fa-brands fa-whatsapp"></i> +7 985 122 6819</p>
+</footer>
+
+<div class="floating-social">
+  <a href="https://wa.me/79851226819" class="social-btn btn-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" class="social-btn btn-tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
+</div>
+
+<script>
+const translations = {
+  ar: {
+    top_bar: "أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية",
+    nav_home: "الرئيسية", nav_hotels: "الفنادق", nav_activities: "الفعاليات", nav_cars: "المواصلات", nav_calc: "حاسبة السفر", nav_contact: "اتصل بنا",
+    moscow_act: "فعاليات موسكو", notice: "‼️ الفعاليات أسعارها تختلف حسب الموسم ‼️", footer_rights: "جميع الحقوق محفوظة",
+    btn_book: "احجز الآن",
+    act_1: "ركوب المنطاد", desc_1: "تجربة رائعة للطيران فوق موسكو.",
+    act_2: "رحلة هيلكوبتر", desc_2: "طائرة Robinson – لعدة أشخاص (ربع ساعة).",
+    act_3: "التجربة العسكرية", desc_3: "تجربة فريدة (مدة ساعتين ونصف).",
+    act_4: "قيادة الدبابة العملاقة", desc_4: "ساعة كاملة – لعدة أشخاص.",
+    act_5: "رحلة بالطائرة", desc_5: "طائرة Cessna – ربع ساعة.",
+    act_6: "الدبابات الرباعية", desc_6: "مدة ساعة من المتعة.",
+    act_7: "دريفت السيارات", desc_7: "مع مدرب محترف (ساعة كاملة).",
+    act_8: "ركوب عربات الهاسكي", desc_8: "تجربة ممتعة مع كلاب الهاسكي.",
+    act_9: "ركوب الخيل", desc_9: "تجربة ركوب الخيل في الطبيعة.",
+    act_10: "التفاعل مع الحيوانات", desc_10: "الدب توم – النمر.",
+    act_11: "الكارتينج", desc_11: "مدة ربع ساعة من السرعة.",
+    act_12: "التلفريك", desc_12: "استمتع بإطلالات بانورامية.",
+    act_13: "الزبلاين", desc_13: "مغامرة الهبوط من أعلى المرتفعات.",
+    act_14: "العجلة الدوارة", desc_14: "إطلالة ساحرة على المدينة.",
+    act_15: "بانوراما موسكو سيتي", desc_15: "أعلى نقطة لمشاهدة موسكو.",
+    act_16: "جولة في الكرملين", desc_16: "تذكرة مع مرشد سياحي عربي.",
+    act_17: "السيرك الروسي", desc_17: "مشاهدة أشهر عروض السيرك.",
+    act_18: "رحلة كروز نهرية", desc_18: "حسب الفئة – جولة في نهر موسكو."
+  },
+  en: {
+    top_bar: "Prices lower than official rates — Instant booking",
+    nav_home: "Home", nav_hotels: "Hotels", nav_activities: "Activities", nav_cars: "Transport", nav_calc: "Travel Calculator", nav_contact: "Contact Us",
+    moscow_act: "Moscow Activities", notice: "‼️ Activities prices vary by season ‼️", footer_rights: "All rights reserved",
+    btn_book: "Book Now",
+    act_1: "Hot Air Balloon", desc_1: "Amazing flight experience over Moscow.",
+    act_2: "Helicopter Ride", desc_2: "Robinson – multiple people (15 mins).",
+    act_3: "Military Experience", desc_3: "Unique experience (2.5 hours).",
+    act_4: "Tank Driving", desc_4: "Full hour – multiple people.",
+    act_5: "Airplane Ride", desc_5: "Cessna – 15 mins.",
+    act_6: "Quad Bikes", desc_6: "A full hour of fun.",
+    act_7: "Drift Driving", desc_7: "With professional coach (1 hour).",
+    act_8: "Husky Ride", desc_8: "Fun experience with Huskies.",
+    act_9: "Horse Riding", desc_9: "Horse riding in nature.",
+    act_10: "Animal Interaction", desc_10: "Tom the Bear – Tiger.",
+    act_11: "Karting", desc_11: "15 mins of speed.",
+    act_12: "Cable Car", desc_12: "Enjoy panoramic views.",
+    act_13: "Zipline", desc_13: "Adventure from high altitudes.",
+    act_14: "Ferris Wheel", desc_14: "Magical view of the city.",
+    act_15: "Moscow City Panorama", desc_15: "Highest point to view Moscow.",
+    act_16: "Kremlin Tour", desc_16: "Ticket with Arab guide.",
+    act_17: "Russian Circus", desc_17: "Watch the most famous shows.",
+    act_18: "River Cruise", desc_18: "By class – Moscow River tour."
+  },
+  zh: {
+    top_bar: "价格低于官方价格 — 即时预订",
+    nav_home: "首页", nav_hotels: "酒店", nav_activities: "活动", nav_cars: "交通", nav_calc: "旅行计算器", nav_contact: "联系我们",
+    moscow_act: "莫斯科活动", notice: "‼️ 活动价格随季节变化 ‼️", footer_rights: "版权所有",
+    btn_book: "现在预订",
+    act_1: "热气球", desc_1: "在莫斯科上空飞行的奇妙体验。",
+    act_2: "直升机之旅", desc_2: "Robinson – 多人 (15分钟)。",
+    act_3: "军事体验", desc_3: "独特的体验 (2.5小时)。",
+    act_4: "驾驶巨型坦克", desc_4: "整整一小时 – 多人。",
+    act_5: "飞机之旅", desc_5: "Cessna – 15分钟。",
+    act_6: "四轮摩托", desc_6: "一小时的乐趣。",
+    act_7: "赛车漂移", desc_7: "有专业教练 (1小时)。",
+    act_8: "哈士奇雪橇", desc_8: "与哈士奇的有趣体验。",
+    act_9: "骑马", desc_9: "在大自然中骑马。",
+    act_10: "动物互动", desc_10: "汤姆熊 – 老虎。",
+    act_11: "卡丁车", desc_11: "15分钟的速度。",
+    act_12: "缆车", desc_12: "享受全景。",
+    act_13: "滑索", desc_13: "高空冒险。",
+    act_14: "摩天轮", desc_14: "城市的迷人景色。",
+    act_15: "莫斯科城全景", desc_15: "观赏莫斯科的最高点。",
+    act_16: "克里姆林宫之旅", desc_16: "含阿拉伯导游。",
+    act_17: "俄罗斯马戏团", desc_17: "观看最著名的表演。",
+    act_18: "内河游船", desc_18: "按等级 – 莫斯科河之旅。"
+  }
+};
+
+function changeLanguage(lang) {
+  localStorage.setItem('selectedLang', lang);
+  if(lang === 'ar') {
+    document.documentElement.dir = 'rtl';
+    document.documentElement.lang = 'ar';
+  } else {
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = lang;
+  }
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key]) {
+      element.innerHTML = translations[lang][key];
+    }
+  });
+  renderActivities();
+}
+
+window.onload = function() {
+  const savedLang = localStorage.getItem('selectedLang') || 'ar';
+  changeLanguage(savedLang);
+};
+
+const WHATSAPP_NUMBER = "79851226819"; 
+const COMPANY_NAME = "CF Travel";
+
+function bookActivity(activityName) {
+  const msg = `مرحباً ${COMPANY_NAME}،\nأرغب في حجز فعالية: ${activityName}\nالتاريخ: \nعدد الأفراد: \nوشكراً.`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+}
+
+const moscowActivities = [
+  { name:"act_1", img:"images/balloon.jpg", desc:"desc_1" },
+  { name:"act_2", img:"images/helicopter.jpg", desc:"desc_2" },
+  { name:"act_3", img:"images/military.jpg", desc:"desc_3" },
+  { name:"act_4", img:"images/tank.jpg", desc:"desc_4" },
+  { name:"act_5", img:"images/cessna.jpg", desc:"desc_5" },
+  { name:"act_6", img:"images/quad-bikes.jpg", desc:"desc_6" },
+  { name:"act_7", img:"images/drift.jpg", desc:"desc_7" },
+  { name:"act_8", img:"images/husky.jpg", desc:"desc_8" },
+  { name:"act_9", img:"images/horse.jpg", desc:"desc_9" },
+  { name:"act_10", img:"images/animals.jpg", desc:"desc_10" },
+  { name:"act_11", img:"images/karting.jpg", desc:"desc_11" },
+  { name:"act_12", img:"images/cablecar.jpg", desc:"desc_12" },
+  { name:"act_13", img:"images/zipline.jpg", desc:"desc_13" },
+  { name:"act_14", img:"images/ferris-wheel.jpg", desc:"desc_14" },
+  { name:"act_15", img:"images/moscow-city.jpg", desc:"desc_15" },
+  { name:"act_16", img:"images/kremlin-tour.jpg", desc:"desc_16" },
+  { name:"act_17", img:"images/circus.jpg", desc:"desc_17" },
+  { name:"act_18", img:"images/river-cruise.jpg", desc:"desc_18" }
+];
+
+function renderActivities() {
+  const lang = localStorage.getItem('selectedLang') || 'ar';
+  const btnText = translations[lang].btn_book;
+  document.getElementById("track-moscow").innerHTML = moscowActivities.map((act, i) => {
+    const name = translations[lang][act.name] || act.name;
+    const desc = translations[lang][act.desc] || act.desc;
+    return `
+      <div class="show-card" onclick="bookActivity('${name}')">
+        <img src="${act.img}" alt="${name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1520106212299-d99c443e4568?w=800'">
+        <div class="card-info">
+          <h3>${name}</h3>
+          <p>${desc}</p>
+          <button class="btn-book-small" onclick="event.stopPropagation(); bookActivity('${name}')">
+            <i class="fa-brands fa-whatsapp"></i> ${btnText}
+          </button>
+        </div>
+      </div>
+    `;
+  }).join("");
+  updateWheel(moscowActivities, moscowIndex, "track-moscow");
+}
+
+function updateWheel(activities, activeIndex, containerId) {
+  const cards = document.querySelectorAll(`#${containerId} .show-card`);
+  cards.forEach((card, index) => {
+    let offset = index - activeIndex;
+    if (Math.abs(offset) > 2) { 
+      card.style.opacity = '0'; card.style.pointerEvents = 'none';
+      card.style.transform = `scale(0.5) translateX(${offset > 0 ? '100%' : '-100%'})`;
+      return;
+    }
+    card.style.opacity = '1'; card.style.pointerEvents = 'auto';
+    let scale = 1 - Math.abs(offset) * 0.15;
+    let translateX = offset * 65; 
+    let rotateY = offset * -25; 
+    let zIndex = 10 - Math.abs(offset);
+    let opacity = 1 - Math.abs(offset) * 0.3; 
+    if (offset === 0) {
+      card.classList.add('active');
+      card.style.transform = `translateX(0) scale(1) rotateY(0deg)`;
+      card.style.opacity = '1';
+    } else {
+      card.classList.remove('active');
+      card.style.transform = `translateX(${translateX}%) scale(${scale}) rotateY(${rotateY}deg)`;
+      card.style.opacity = opacity;
+    }
+    card.style.zIndex = zIndex;
+  });
+}
+
+let moscowIndex = 0;
+function moveMoscow(dir) {
+  moscowIndex = (moscowIndex + dir + moscowActivities.length) % moscowActivities.length;
+  updateWheel(moscowActivities, moscowIndex, "track-moscow");
+}
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    const icon = menuToggle.querySelector('i');
+    if (navLinks.classList.contains('show')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); } 
+    else { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
+  });
+}
+
+function enableSwipe(containerSelector, moveFunc) {
+  const container = document.querySelector(containerSelector);
+  if(!container) return;
+  let startX = 0; let isDragging = false;
+  container.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, {passive: true});
+  container.addEventListener('touchend', (e) => {
+    if(!isDragging) return;
+    isDragging = false;
+    let endX = e.changedTouches[0].clientX;
+    let diff = startX - endX;
+    if (diff > 50) moveFunc(1);
+    else if (diff < -50) moveFunc(-1);
+  }, {passive: true});
+}
+setTimeout(() => {
+  enableSwipe('.carousel-container', moveMoscow);
+}, 1000); 
+</script>
+</body>
+</html>
