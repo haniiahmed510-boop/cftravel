@@ -12,10 +12,11 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{--primary:#0A2540;--secondary:#00B4D8;--accent:#FFB703;--text:#F8F9FA;--muted:#9CA3AF;--glass:rgba(10, 37, 64, 0.7);}
 html{scroll-behavior:smooth;}
-body{font-family:'Cairo',sans-serif;color:var(--text);background:var(--primary);line-height:1.6;direction:rtl;overflow-x:hidden;}
+body{font-family:'Cairo',sans-serif;color:var(--text);background:var(--primary);line-height:1.6;direction:rtl;overflow-x:hidden; transition: all 0.3s ease;}
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
 .container{max-width:1300px;margin:0 auto;padding:0 20px;}
+
 .top-bar{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;text-align:center;padding:10px 20px;font-size:14px;font-weight:600;position:fixed;top:0;width:100%;z-index:1000;}
 .navbar{background:rgba(10, 37, 64, 0.95);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,0.1);position:fixed;top:41px;width:100%;z-index:1000;}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
@@ -28,6 +29,18 @@ ul{list-style:none;}
 .nav-links a:hover,.nav-links a.active{color:var(--secondary);}
 .nav-links a.active::after{content:'';position:absolute;bottom:-6px;right:0;left:0;height:3px;background:var(--accent);border-radius:2px;}
 .menu-toggle{display:none;font-size:22px;background:none;border:none;color:#fff;cursor:pointer;}
+
+/* تصميم أزرار اللغة (أعلام) */
+.lang-switcher { display: flex; gap: 8px; margin-left: 15px; }
+.lang-switcher button {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
+  padding: 0; border-radius: 50%;
+  cursor: pointer; font-size: 20px;
+  transition: 0.3s; display: flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px;
+}
+.lang-switcher button:hover { background: var(--secondary); transform: scale(1.1); }
+
 .contact-section { position: relative; width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle at center, #143a5e 0%, #0A2540 100%); overflow: hidden; padding: 120px 20px 80px; }
 .globe-bg { position: absolute; width: 700px; height: 700px; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800'); background-size: cover; opacity: 0.15; animation: rotateGlobe 30s linear infinite; box-shadow: 0 0 100px rgba(0, 180, 216, 0.2); }
 @keyframes rotateGlobe { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
@@ -51,6 +64,7 @@ ul{list-style:none;}
 .card-wa:hover .btn-contact { background: #25D366; color: #000; }
 .card-tiktok:hover .btn-contact { background: #fff; color: #000; }
 .card-email:hover .btn-contact { background: var(--accent); color: #000; }
+
 .footer{position:relative; width:100%; background:#051320; border-top:1px solid rgba(255, 255, 255, 0.1); color:#fff;padding:20px 0;text-align:center; display:flex; justify-content:center; align-items:center; gap:20px;}
 .footer p{opacity:.8;font-size:13px; margin:0;}
 .floating-social { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
@@ -60,6 +74,7 @@ ul{list-style:none;}
 .btn-tiktok { background: #000; border: 2px solid #fff; color: #fff;}
 .btn-email { background: var(--accent); color: #000; }
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
 @media(max-width:1000px){
   .contact-section { padding: 100px 20px 80px; }
   .globe-bg { width: 400px; height: 400px; }
@@ -74,28 +89,39 @@ ul{list-style:none;}
   .nav-links li{width:100%;}
   .nav-links a{ display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
   .nav-links a.active::after{display:none;}
+  .nav-inner { flex-wrap: wrap; }
+  .lang-switcher { margin: 10px 0; width: 100%; justify-content: center; }
 }
 </style>
 </head>
 <body>
-<div class="top-bar"><i class="fa-solid fa-circle-check"></i> أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية</div>
+
+<div class="top-bar"><i class="fa-solid fa-circle-check"></i> <span data-i18n="top_bar">أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية</span></div>
 <nav class="navbar">
   <div class="container nav-inner">
     <a href="index.html" class="logo">
       <img src="images/logo.png" alt="CF Travel Logo" class="nav-logo-img" onerror="this.style.display='none'">
       <div class="nav-logo-text"><span>Travel</span> CF</div>
     </a>
+    
+    <div class="lang-switcher">
+      <button onclick="changeLanguage('ar')" title="العربية">🇸🇦</button>
+      <button onclick="changeLanguage('en')" title="English">🇺🇸</button>
+      <button onclick="changeLanguage('zh')" title="中文">🇨🇳</button>
+    </div>
+
     <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
     <ul class="nav-links">
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="hotels.html">الفنادق</a></li>
-      <li><a href="activities.html">الفعاليات</a></li>
-      <li><a href="cars.html">المواصلات</a></li>
-      <li><a href="calculator.html">حاسبة CF</a></li>
-      <li><a href="contact.html" class="active">اتصل بنا</a></li>
+      <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+      <li><a href="hotels.html" data-i18n="nav_hotels">الفنادق</a></li>
+      <li><a href="activities.html" data-i18n="nav_activities">الفعاليات</a></li>
+      <li><a href="cars.html" data-i18n="nav_cars">المواصلات</a></li>
+      <li><a href="calculator.html" data-i18n="nav_calc">حاسبة CF</a></li>
+      <li><a href="contact.html" class="active" data-i18n="nav_contact">اتصل بنا</a></li>
     </ul>
   </div>
 </nav>
+
 <section class="contact-section">
   <div class="globe-bg"></div>
   <div class="contact-cards">
@@ -103,57 +129,39 @@ ul{list-style:none;}
     <a href="https://wa.me/79851226819" target="_blank" class="contact-card card-wa">
       <div>
         <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
-        <h3>واتساب</h3>
-        <p>تواصل معنا مباشرة للحجز والاستفسار</p>
+        <h3 data-i18n="card_wa_title">واتساب</h3>
+        <p data-i18n="card_wa_desc">تواصل معنا مباشرة للحجز والاستفسار</p>
       </div>
-      <div class="btn-contact"><i class="fa-brands fa-whatsapp"></i> تواصل واتساب</div>
+      <div class="btn-contact" data-i18n="card_wa_btn"><i class="fa-brands fa-whatsapp"></i> تواصل واتساب</div>
     </a>
 
     <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" target="_blank" class="contact-card card-tiktok">
       <div>
         <div class="contact-icon"><i class="fa-brands fa-tiktok"></i></div>
-        <h3>تيك توك</h3>
-        <p>شاهد فيديوهات مغامراتنا في روسيا</p>
+        <h3 data-i18n="card_tk_title">تيك توك</h3>
+        <p data-i18n="card_tk_desc">شاهد فيديوهات مغامراتنا في روسيا</p>
       </div>
-      <div class="btn-contact"><i class="fa-brands fa-tiktok"></i> تابعنا على تيك توك</div>
+      <div class="btn-contact" data-i18n="card_tk_btn"><i class="fa-brands fa-tiktok"></i> تابعنا على تيك توك</div>
     </a>
 
     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="contact-card card-email">
       <div>
         <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-        <h3>البريد الإلكتروني</h3>
-        <p>راسلنا وسنقوم بالرد عليك في أسرع وقت</p>
+        <h3 data-i18n="card_email_title">البريد الإلكتروني</h3>
+        <p data-i18n="card_email_desc">راسلنا وسنقوم بالرد عليك في أسرع وقت</p>
       </div>
-      <div class="btn-contact"><i class="fa-solid fa-paper-plane"></i> أرسل إيميل</div>
+      <div class="btn-contact" data-i18n="card_email_btn"><i class="fa-solid fa-paper-plane"></i> أرسل إيميل</div>
     </a>
 
   </div>
 </section>
+
 <footer class="footer">
-  <p>© 2025 CF Travel — جميع الحقوق محفوظة</p>
+  <p>© 2025 CF Travel — <span data-i18n="footer_rights">جميع الحقوق محفوظة</span></p>
   <p style="direction: ltr; display: flex; align-items: center; gap: 5px;"><i class="fa-brands fa-whatsapp"></i> +7 985 122 6819</p>
 </footer>
+
 <div class="floating-social">
   <a href="https://wa.me/79851226819" class="social-btn btn-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
   <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" class="social-btn btn-tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
-</div>
-<script>
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-if (menuToggle) {
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-    const icon = menuToggle.querySelector('i');
-    if (navLinks.classList.contains('show')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-xmark');
-    } else {
-      icon.classList.remove('fa-xmark');
-      icon.classList.add('fa-bars');
-    }
-  });
-}
-</script>
-</body>
-</html>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="social-btn btn-email"><i class="fa-solid
