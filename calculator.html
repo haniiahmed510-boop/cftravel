@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>حاسبة CF | CF Travel</title>
+<title>حاسبة السفر | شركة سي اف ترافيل</title>
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="images/logo.png" type="image/png" sizes="48x48" />
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -29,15 +29,27 @@ ul{list-style:none;}
 .nav-links a.active::after{content:'';position:absolute;bottom:-6px;right:0;left:0;height:3px;background:var(--accent);border-radius:2px;}
 .menu-toggle{display:none;font-size:22px;background:none;border:none;color:#fff;cursor:pointer;}
 
-.lang-switcher { display: flex; gap: 8px; margin-left: 15px; }
-.lang-switcher button {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
-  padding: 0; border-radius: 50%;
-  cursor: pointer; font-size: 20px;
-  transition: 0.3s; display: flex; align-items: center; justify-content: center;
-  width: 38px; height: 38px;
+/* تصميم قائمة اللغة المنسدلة */
+.lang-dropdown { position: relative; display: inline-block; margin-left: 15px; }
+.lang-btn {
+  background: rgba(255,255,255,0.1); border: 1px solid var(--secondary);
+  color: #fff; padding: 8px 15px; border-radius: 20px;
+  cursor: pointer; font-family: 'Cairo', sans-serif; font-size: 14px;
+  display: flex; align-items: center; gap: 8px; transition: 0.3s;
 }
-.lang-switcher button:hover { background: var(--secondary); transform: scale(1.1); }
+.lang-btn:hover { background: var(--secondary); color: #000; }
+.lang-menu {
+  display: none; position: absolute; top: 100%; right: 0;
+  background: var(--primary); border: 1px solid var(--secondary);
+  border-radius: 10px; padding: 5px 0; min-width: 140px; z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5); margin-top: 5px;
+}
+.lang-dropdown:hover .lang-menu { display: block; }
+.lang-menu a {
+  display: block; padding: 10px 15px; color: #fff; text-decoration: none;
+  font-family: 'Cairo', sans-serif; cursor: pointer; font-size: 14px; transition: 0.2s;
+}
+.lang-menu a:hover { background: var(--secondary); color: #000; }
 
 .page-bg { background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1600') center/cover fixed; min-height: 100vh; padding-top: 140px; padding-bottom: 100px; }
 .calc-box { background: rgba(10, 37, 64, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(0, 180, 216, 0.2); border-radius: 30px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
@@ -86,7 +98,8 @@ ul{list-style:none;}
   .nav-links a{ display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
   .nav-links a.active::after{display:none;}
   .nav-inner { flex-wrap: wrap; }
-  .lang-switcher { margin: 10px 0; width: 100%; justify-content: center; }
+  .lang-dropdown { margin: 10px 0; width: 100%; text-align: center; }
+  .lang-menu { right: auto; left: 50%; transform: translateX(-50%); }
 }
 </style>
 </head>
@@ -101,10 +114,13 @@ ul{list-style:none;}
       <div class="nav-logo-text"><span>Travel</span> CF</div>
     </a>
     
-    <div class="lang-switcher">
-      <button onclick="changeLanguage('ar')" title="العربية">🇸🇦</button>
-      <button onclick="changeLanguage('en')" title="English">🇺🇸</button>
-      <button onclick="changeLanguage('zh')" title="中文">🇨🇳</button>
+    <div class="lang-dropdown">
+      <button class="lang-btn"><i class="fa-solid fa-globe"></i> <span data-i18n="lang_btn">اللغة</span></button>
+      <div class="lang-menu">
+        <a onclick="changeLanguage('ar')">🇸🇦 العربية</a>
+        <a onclick="changeLanguage('en')">🇺🇸 English</a>
+        <a onclick="changeLanguage('zh')">🇨🇳 中文</a>
+      </div>
     </div>
 
     <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
@@ -113,7 +129,7 @@ ul{list-style:none;}
       <li><a href="hotels.html" data-i18n="nav_hotels">الفنادق</a></li>
       <li><a href="activities.html" data-i18n="nav_activities">الفعاليات</a></li>
       <li><a href="cars.html" data-i18n="nav_cars">المواصلات</a></li>
-      <li><a href="calculator.html" class="active" data-i18n="nav_calc">حاسبة CF</a></li>
+      <li><a href="calculator.html" class="active" data-i18n="nav_calc">حاسبة السفر</a></li>
       <li><a href="contact.html" data-i18n="nav_contact">اتصل بنا</a></li>
     </ul>
   </div>
@@ -200,7 +216,8 @@ ul{list-style:none;}
 const translations = {
   ar: {
     top_bar: "أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية",
-    nav_home: "الرئيسية", nav_hotels: "الفنادق", nav_activities: "الفعاليات", nav_cars: "المواصلات", nav_calc: "حاسبة CF", nav_contact: "اتصل بنا",
+    nav_home: "الرئيسية", nav_hotels: "الفنادق", nav_activities: "الفعاليات", nav_cars: "المواصلات", nav_calc: "حاسبة السفر", nav_contact: "اتصل بنا",
+    lang_btn: "اللغة",
     calc_title: "حاسبة <span>CF</span>", calc_desc: "أهلاً بك في <strong>حاسبة CF</strong>! أداة ذكية صممناها خصيصاً لمساعدتك في التخطيط لرحلتك إلى روسيا. من خلال تحديد عدد الأفراد، مستوى الفندق، ونوع المواصلات، يمكنك الحصول على <strong>تقدير فوري وشامل</strong> لتكلفة رحلتك، لتعرف ميزانيتك التقريبية قبل حتى أن تبدأ الحجز.",
     lbl_people: '<i class="fa-solid fa-users"></i> عدد الأفراد', lbl_nights: '<i class="fa-solid fa-moon"></i> عدد الليالي', lbl_hotel: '<i class="fa-solid fa-hotel"></i> مستوى الفندق', lbl_food: '<i class="fa-solid fa-utensils"></i> مستوى المطاعم', lbl_transport: '<i class="fa-solid fa-car"></i> المواصلات (سائق عربي)', lbl_activity: '<i class="fa-solid fa-ticket"></i> الجولات والفعاليات (بالليالي)',
     opt_eco: "اقتصادي (3 نجوم)", opt_std: "متوسط (4 نجوم)", opt_lux: "فاخر (5 نجوم)", opt_med: "مطاعم متوسطة", opt_high: "مطاعم عالية (فاخرة)", opt_no_driver: "بدون سائق (تاكسي/مترو)", opt_airport: "استقبال من المطار فقط", opt_half: "سائق 4 ساعات يومياً", opt_full: "سائق يوم كامل (8 ساعات)", opt_no_act: "بدون جولات إضافية", opt_light: "جولات خفيفة (1-2)", opt_med_act: "جولات متوسطة (3-4)", opt_heavy: "جولات كثيرة (+5)",
@@ -209,6 +226,7 @@ const translations = {
   en: {
     top_bar: "Prices lower than official rates — Instant booking",
     nav_home: "Home", nav_hotels: "Hotels", nav_activities: "Activities", nav_cars: "Transport", nav_calc: "Calculator", nav_contact: "Contact Us",
+    lang_btn: "Language",
     calc_title: "<span>CF</span> Calculator", calc_desc: "Welcome to <strong>CF Calculator</strong>! A smart tool designed to help you plan your trip to Russia. By selecting the number of people, hotel level, and transport type, you get an <strong>instant and comprehensive estimate</strong> of your trip cost.",
     lbl_people: '<i class="fa-solid fa-users"></i> Number of People', lbl_nights: '<i class="fa-solid fa-moon"></i> Number of Nights', lbl_hotel: '<i class="fa-solid fa-hotel"></i> Hotel Level', lbl_food: '<i class="fa-solid fa-utensils"></i> Restaurant Level', lbl_transport: '<i class="fa-solid fa-car"></i> Transport (Arab Driver)', lbl_activity: '<i class="fa-solid fa-ticket"></i> Tours & Activities',
     opt_eco: "Economy (3 Stars)", opt_std: "Standard (4 Stars)", opt_lux: "Luxury (5 Stars)", opt_med: "Medium Restaurants", opt_high: "High-end Restaurants", opt_no_driver: "No Driver (Taxi/Metro)", opt_airport: "Airport Pick-up Only", opt_half: "Driver 4 Hours/Day", opt_full: "Full Day Driver (8 Hours)", opt_no_act: "No Extra Tours", opt_light: "Light Tours (1-2)", opt_med_act: "Medium Tours (3-4)", opt_heavy: "Many Tours (+5)",
@@ -217,6 +235,7 @@ const translations = {
   zh: {
     top_bar: "价格低于官方价格 — 即时预订",
     nav_home: "首页", nav_hotels: "酒店", nav_activities: "活动", nav_cars: "交通", nav_calc: "计算器", nav_contact: "联系我们",
+    lang_btn: "语言",
     calc_title: "<span>CF</span> 计算器", calc_desc: "欢迎使用 <strong>CF 计算器</strong>！这是一个智能工具，旨在帮助您规划俄罗斯之旅。通过选择人数、酒店级别和交通类型，您可以获得<strong>即时全面的估算</strong>。",
     lbl_people: '<i class="fa-solid fa-users"></i> 人数', lbl_nights: '<i class="fa-solid fa-moon"></i> 晚数', lbl_hotel: '<i class="fa-solid fa-hotel"></i> 酒店级别', lbl_food: '<i class="fa-solid fa-utensils"></i> 餐厅级别', lbl_transport: '<i class="fa-solid fa-car"></i> 交通 (阿拉伯司机)', lbl_activity: '<i class="fa-solid fa-ticket"></i> 旅游与活动',
     opt_eco: "经济 (3星)", opt_std: "标准 (4星)", opt_lux: "豪华 (5星)", opt_med: "中档餐厅", opt_high: "高档餐厅", opt_no_driver: "无司机 (出租车/地铁)", opt_airport: "仅机场接送", opt_half: "司机每天4小时", opt_full: "全天司机 (8小时)", opt_no_act: "无额外旅游", opt_light: "轻度旅游 (1-2)", opt_med_act: "中度旅游 (3-4)", opt_heavy: "大量旅游 (+5)",
