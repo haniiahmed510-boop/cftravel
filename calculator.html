@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>حاسبة السفر | شركة سي اف ترافيل</title>
+<title>اتصل بنا | شركة سي اف ترافيل</title>
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="images/logo.png" type="image/png" sizes="48x48" />
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{--primary:#0A2540;--secondary:#00B4D8;--accent:#FFB703;--text:#F8F9FA;--muted:#9CA3AF;}
+:root{--primary:#0A2540;--secondary:#00B4D8;--accent:#FFB703;--text:#F8F9FA;--muted:#9CA3AF;--glass:rgba(10, 37, 64, 0.7);}
 html{scroll-behavior:smooth;}
 body{font-family:'Cairo',sans-serif;color:var(--text);background:var(--primary);line-height:1.6;direction:rtl;overflow-x:hidden; transition: all 0.3s ease;}
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
-.container{max-width:1000px;margin:0 auto;padding:0 20px;}
+.container{max-width:1300px;margin:0 auto;padding:0 20px;}
 .top-bar{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;text-align:center;padding:10px 20px;font-size:14px;font-weight:600;position:fixed;top:0;width:100%;z-index:1000;}
-.navbar{background:rgba(10, 37, 64, 0.9);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,0.1);position:fixed;top:41px;width:100%;z-index:1000;}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0; max-width: 1300px; margin: 0 auto;}
+.navbar{background:rgba(10, 37, 64, 0.95);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,0.1);position:fixed;top:41px;width:100%;z-index:1000;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
 .logo{font-size:26px;font-weight:800;color:#fff;display:flex;align-items:center;gap:10px;}
 .nav-logo-img{height:50px;width:auto;border-radius:8px;object-fit:contain;}
 .nav-logo-text{display:flex;align-items:center;gap:5px;letter-spacing:0.5px;}
@@ -51,32 +51,49 @@ ul{list-style:none;}
 }
 .lang-menu a:hover { background: var(--secondary); color: #000; }
 
-.page-bg { background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1600') center/cover fixed; min-height: 100vh; padding-top: 140px; padding-bottom: 100px; }
-.calc-box { background: rgba(10, 37, 64, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(0, 180, 216, 0.2); border-radius: 30px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-.calc-header { text-align: center; margin-bottom: 40px; }
-.calc-header h1 { font-size: clamp(32px,5vw,48px); font-weight: 800; color: #fff; margin-bottom: 15px; }
-.calc-header h1 span { color: var(--secondary); text-shadow: 0 0 20px rgba(0, 180, 216, 0.5); }
-.calc-header p { font-size: 17px; color: #ccc; max-width: 700px; margin: 0 auto; line-height: 1.8; }
-.calc-header p strong { color: var(--accent); }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.form-group { margin-bottom: 25px; }
-.form-group label { display: block; font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 10px; }
-.form-group label i { color: var(--secondary); margin-left: 5px; }
-.form-control, .form-select { width: 100%; padding: 14px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-family: inherit; font-size: 15px; transition: 0.3s; outline: none; }
-.form-control:focus, .form-select:focus { border-color: var(--secondary); background: rgba(0, 180, 216, 0.1); }
-.form-select option { background: var(--primary); color: #fff; }
-.result-box { background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(10, 37, 64, 0.8)); border: 2px solid var(--secondary); border-radius: 20px; padding: 30px; text-align: center; margin-top: 40px; box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2); }
-.result-box p { font-size: 18px; color: #ddd; margin-bottom: 10px; }
-.result-box h2 { font-size: clamp(36px,5vw,56px); font-weight: 800; color: var(--accent); margin-bottom: 5px; }
-.result-box span { font-size: 14px; color: #bbb; display: block; margin-bottom: 20px;}
-.breakdown { text-align: right; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: none; }
-.breakdown.show { display: block; }
-.breakdown-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; color: #ddd; }
-.breakdown-item span:last-child { color: var(--secondary); font-weight: 700; }
-.btn-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px; background: var(--secondary); color: #000; border: none; border-radius: 12px; font-weight: 800; font-size: 18px; font-family: inherit; cursor: pointer; transition: 0.3s; margin-top: 20px; }
-.btn-submit:hover { background: #fff; box-shadow: 0 0 30px rgba(0, 180, 216, 0.5); transform: translateY(-3px); }
-.price-note { text-align: center; color: var(--accent); font-size: 14px; font-weight: 700; margin-top: 15px; background: rgba(255, 183, 3, 0.1); padding: 10px; border-radius: 8px; border: 1px dashed rgba(255, 183, 3, 0.3); }
-.footer{position:relative; width:100%; background:rgba(5,12,21,0.95); border-top:1px solid rgba(255, 255, 255, 0.1); color:#fff;padding:20px 0;text-align:center; display:flex; justify-content:center; align-items:center; gap:20px;}
+/* تصميم إشعار الكوكيز */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(10, 37, 64, 0.98); backdrop-filter: blur(10px);
+  border-top: 2px solid var(--secondary);
+  color: #fff; padding: 15px 20px; z-index: 9999;
+  display: none; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+}
+.cookie-banner p { margin: 0; font-size: 14px; flex: 1; min-width: 250px; }
+.cookie-banner a { color: var(--accent); text-decoration: underline; }
+.cookie-banner button {
+  background: var(--secondary); color: #000; border: none; padding: 10px 25px;
+  border-radius: 50px; font-weight: 800; font-size: 14px; font-family: 'Cairo', sans-serif;
+  cursor: pointer; transition: 0.3s; white-space: nowrap;
+}
+.cookie-banner button:hover { background: #fff; transform: scale(1.05); }
+
+.contact-section { position: relative; width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle at center, #143a5e 0%, #0A2540 100%); overflow: hidden; padding: 120px 20px 80px; }
+.globe-bg { position: absolute; width: 700px; height: 700px; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800'); background-size: cover; opacity: 0.15; animation: rotateGlobe 30s linear infinite; box-shadow: 0 0 100px rgba(0, 180, 216, 0.2); }
+@keyframes rotateGlobe { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+.contact-cards { position: relative; z-index: 10; display: flex; gap: 30px; perspective: 1000px; flex-wrap: wrap; justify-content: center; }
+.contact-card { background: var(--glass); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border-radius: 24px; padding: 40px 30px; width: 280px; text-align: center; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; }
+.contact-icon { width: 70px; height: 70px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; transition: all 0.4s ease; }
+.card-wa .contact-icon { background: rgba(37, 211, 102, 0.1); color: #25D366; border: 1px solid rgba(37, 211, 102, 0.3); }
+.card-tiktok .contact-icon { background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.3); }
+.card-email .contact-icon { background: rgba(255, 183, 3, 0.1); color: var(--accent); border: 1px solid rgba(255, 183, 3, 0.3); }
+.contact-card h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.contact-card p { font-size: 14px; color: #ccc; margin-bottom: 25px; flex: 1;}
+.btn-contact { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; background: transparent; border: 2px solid var(--secondary); color: var(--secondary); border-radius: 50px; font-weight: 700; font-size: 15px; transition: 0.3s; font-family: inherit; }
+.card-wa .btn-contact { border-color: #25D366; color: #25D366; }
+.card-tiktok .btn-contact { border-color: #fff; color: #fff; }
+.card-email .btn-contact { border-color: var(--accent); color: var(--accent); }
+.contact-card:hover { transform: translateY(-10px) scale(1.02); background: rgba(10, 37, 64, 0.9); }
+.card-wa:hover { border-color: #25D366; box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3); }
+.card-tiktok:hover { border-color: #fff; box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2); }
+.card-email:hover { border-color: var(--accent); box-shadow: 0 15px 40px rgba(255, 183, 3, 0.3); }
+.contact-card:hover .contact-icon { transform: scale(1.1); }
+.card-wa:hover .btn-contact { background: #25D366; color: #000; }
+.card-tiktok:hover .btn-contact { background: #fff; color: #000; }
+.card-email:hover .btn-contact { background: var(--accent); color: #000; }
+
+.footer{position:relative; width:100%; background:#051320; border-top:1px solid rgba(255, 255, 255, 0.1); color:#fff;padding:20px 0;text-align:center; display:flex; justify-content:center; align-items:center; gap:20px;}
 .footer p{opacity:.8;font-size:13px; margin:0;}
 .floating-social { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
 .social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
@@ -86,27 +103,37 @@ ul{list-style:none;}
 .btn-email { background: var(--accent); color: #000; }
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
 
-@media(max-width:900px){
-  .page-bg { padding-top: 100px; }
-  .calc-box { padding: 25px 15px; }
-  .grid-2 { grid-template-columns: 1fr; gap: 0; }
+@media(max-width:1000px){
+  .contact-section { padding: 100px 20px 80px; }
+  .globe-bg { width: 400px; height: 400px; }
+  .contact-cards { gap: 20px; }
+  .contact-card { width: 100%; max-width: 320px; padding: 30px 20px; }
   .footer { flex-direction: column; gap: 5px; }
+}
+@media(max-width:900px){
   .menu-toggle{display:block;}
   .nav-links{ position:absolute; top:100%; right:0; left:0; background:rgba(10,37,64,0.98); backdrop-filter:blur(15px); flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
   .nav-links.show{max-height:500px;}
   .nav-links li{width:100%;}
   .nav-links a{ display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
   .nav-links a.active::after{display:none;}
-  .nav-inner { flex-wrap: wrap; }
-  .lang-dropdown { margin: 10px 0; width: 100%; text-align: center; }
-  .lang-menu { right: auto; left: 50%; transform: translateX(-50%); }
+  /* تظبيط الهيدر في الموبايل */
+  .nav-inner { flex-wrap: nowrap; justify-content: space-between; padding: 8px 0; }
+  .logo { font-size: 18px; gap: 5px; }
+  .nav-logo-img { height: 35px; }
+  .lang-dropdown { margin: 0; width: auto; order: 2; }
+  .lang-btn { padding: 5px 10px; font-size: 12px; }
+  .menu-toggle { order: 3; font-size: 18px; }
+  .nav-links { order: 4; }
+  .top-bar { padding: 5px 10px; font-size: 12px; }
+  .contact-section { padding-top: 100px; }
+  .cookie-banner { flex-direction: column; text-align: center; padding: 10px; gap: 10px; }
 }
 </style>
 </head>
 <body>
 
 <div class="top-bar"><i class="fa-solid fa-circle-check"></i> <span data-i18n="top_bar">أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية</span></div>
-
 <nav class="navbar">
   <div class="container nav-inner">
     <a href="index.html" class="logo">
@@ -129,77 +156,45 @@ ul{list-style:none;}
       <li><a href="hotels.html" data-i18n="nav_hotels">الفنادق</a></li>
       <li><a href="activities.html" data-i18n="nav_activities">الفعاليات</a></li>
       <li><a href="cars.html" data-i18n="nav_cars">المواصلات</a></li>
-      <li><a href="calculator.html" class="active" data-i18n="nav_calc">حاسبة السفر</a></li>
-      <li><a href="contact.html" data-i18n="nav_contact">اتصل بنا</a></li>
+      <li><a href="calculator.html" data-i18n="nav_calc">حاسبة السفر</a></li>
+      <li><a href="contact.html" class="active" data-i18n="nav_contact">اتصل بنا</a></li>
     </ul>
   </div>
 </nav>
 
-<div class="page-bg">
-  <div class="container">
-    <div class="calc-box">
-      <div class="calc-header">
-        <h1 data-i18n="calc_title">حاسبة <span>CF</span></h1>
-        <p data-i18n="calc_desc">أهلاً بك في <strong>حاسبة CF</strong>! أداة ذكية صممناها خصيصاً لمساعدتك في التخطيط لرحلتك إلى روسيا. من خلال تحديد عدد الأفراد، مستوى الفندق، ونوع المواصلات، يمكنك الحصول على <strong>تقدير فوري وشامل</strong> لتكلفة رحلتك، لتعرف ميزانيتك التقريبية قبل حتى أن تبدأ الحجز.</p>
+<section class="contact-section">
+  <div class="globe-bg"></div>
+  <div class="contact-cards">
+    
+    <a href="https://wa.me/79851226819" target="_blank" class="contact-card card-wa">
+      <div>
+        <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3 data-i18n="card_wa_title">واتساب</h3>
+        <p data-i18n="card_wa_desc">تواصل معنا مباشرة للحجز والاستفسار</p>
       </div>
+      <div class="btn-contact" data-i18n="card_wa_btn"><i class="fa-brands fa-whatsapp"></i> تواصل واتساب</div>
+    </a>
 
-      <form id="calcForm">
-        <div class="grid-2">
-          <div class="form-group"><label data-i18n="lbl_people"><i class="fa-solid fa-users"></i> عدد الأفراد</label><input type="number" class="form-control" id="people" min="1" value="2"></div>
-          <div class="form-group"><label data-i18n="lbl_nights"><i class="fa-solid fa-moon"></i> عدد الليالي</label><input type="number" class="form-control" id="nights" min="1" value="5"></div>
-        </div>
-        <div class="form-group">
-          <label data-i18n="lbl_hotel"><i class="fa-solid fa-hotel"></i> مستوى الفندق</label>
-          <select class="form-select" id="hotelType">
-            <option value="economy" data-i18n="opt_eco">اقتصادي (3 نجوم)</option>
-            <option value="standard" selected data-i18n="opt_std">متوسط (4 نجوم)</option>
-            <option value="luxury" data-i18n="opt_lux">فاخر (5 نجوم)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label data-i18n="lbl_food"><i class="fa-solid fa-utensils"></i> مستوى المطاعم</label>
-          <select class="form-select" id="foodType">
-            <option value="medium" data-i18n="opt_med">مطاعم متوسطة</option>
-            <option value="high" selected data-i18n="opt_high">مطاعم عالية (فاخرة)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label data-i18n="lbl_transport"><i class="fa-solid fa-car"></i> المواصلات (سائق عربي)</label>
-          <select class="form-select" id="transport">
-            <option value="none" data-i18n="opt_no_driver">بدون سائق (تاكسي/مترو)</option>
-            <option value="airport" selected data-i18n="opt_airport">استقبال من المطار فقط</option>
-            <option value="halfDay" data-i18n="opt_half">سائق 4 ساعات يومياً</option>
-            <option value="fullDay" data-i18n="opt_full">سائق يوم كامل (8 ساعات)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label data-i18n="lbl_activity"><i class="fa-solid fa-ticket"></i> الجولات والفعاليات (بالليالي)</label>
-          <select class="form-select" id="activityType">
-            <option value="none" data-i18n="opt_no_act">بدون جولات إضافية</option>
-            <option value="light" selected data-i18n="opt_light">جولات خفيفة (1-2)</option>
-            <option value="medium" data-i18n="opt_med_act">جولات متوسطة (3-4)</option>
-            <option value="heavy" data-i18n="opt_heavy">جولات كثيرة (+5)</option>
-          </select>
-        </div>
-      </form>
-
-      <div class="result-box">
-        <p data-i18n="res_total">التكلفة التقديرية للرحلة</p>
-        <h2 id="totalCost">$ 0</h2>
-        <div class="breakdown" id="breakdown">
-          <div class="breakdown-item"><span data-i18n="cost_flight">الطيران:</span> <span id="cost-flight">$0</span></div>
-          <div class="breakdown-item"><span data-i18n="cost_hotel">الفندق:</span> <span id="cost-hotel">$0</span></div>
-          <div class="breakdown-item"><span data-i18n="cost_food">الأكل:</span> <span id="cost-food">$0</span></div>
-          <div class="breakdown-item"><span data-i18n="cost_transport">المواصلات:</span> <span id="cost-transport">$0</span></div>
-          <div class="breakdown-item"><span data-i18n="cost_act">الجولات:</span> <span id="cost-activities">$0</span></div>
-        </div>
+    <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" target="_blank" class="contact-card card-tiktok">
+      <div>
+        <div class="contact-icon"><i class="fa-brands fa-tiktok"></i></div>
+        <h3 data-i18n="card_tk_title">تيك توك</h3>
+        <p data-i18n="card_tk_desc">شاهد فيديوهات مغامراتنا في روسيا</p>
       </div>
+      <div class="btn-contact" data-i18n="card_tk_btn"><i class="fa-brands fa-tiktok"></i> تابعنا على تيك توك</div>
+    </a>
 
-      <button class="btn-submit" onclick="sendToWhatsApp()"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn_book">احجز الآن</span></button>
-      <div class="price-note" data-i18n="note_price"><i class="fa-solid fa-circle-exclamation"></i> ملاحظة: السعر المعروض تقريبي وقد يتغير بناءً على التوفر والموسم.</div>
-    </div>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="contact-card card-email">
+      <div>
+        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+        <h3 data-i18n="card_email_title">البريد الإلكتروني</h3>
+        <p data-i18n="card_email_desc">راسلنا وسنقوم بالرد عليك في أسرع وقت</p>
+      </div>
+      <div class="btn-contact" data-i18n="card_email_btn"><i class="fa-solid fa-paper-plane"></i> أرسل إيميل</div>
+    </a>
+
   </div>
-</div>
+</section>
 
 <footer class="footer">
   <p>© 2025 CF Travel — <span data-i18n="footer_rights">جميع الحقوق محفوظة</span></p>
@@ -212,34 +207,40 @@ ul{list-style:none;}
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
 </div>
 
+<!-- إشعار الكوكيز -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>نستخدم ملفات تعريف الارتباط (Cookies) لتحسين تجربتك على موقعنا. استمرارك في التصفح يعني موافقتك على <a href="#">سياسة الخصوصية</a>.</p>
+  <button onclick="acceptCookies()">موافق</button>
+</div>
+
 <script>
 const translations = {
   ar: {
     top_bar: "أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية",
     nav_home: "الرئيسية", nav_hotels: "الفنادق", nav_activities: "الفعاليات", nav_cars: "المواصلات", nav_calc: "حاسبة السفر", nav_contact: "اتصل بنا",
     lang_btn: "اللغة",
-    calc_title: "حاسبة <span>CF</span>", calc_desc: "أهلاً بك في <strong>حاسبة CF</strong>! أداة ذكية صممناها خصيصاً لمساعدتك في التخطيط لرحلتك إلى روسيا. من خلال تحديد عدد الأفراد، مستوى الفندق، ونوع المواصلات، يمكنك الحصول على <strong>تقدير فوري وشامل</strong> لتكلفة رحلتك، لتعرف ميزانيتك التقريبية قبل حتى أن تبدأ الحجز.",
-    lbl_people: '<i class="fa-solid fa-users"></i> عدد الأفراد', lbl_nights: '<i class="fa-solid fa-moon"></i> عدد الليالي', lbl_hotel: '<i class="fa-solid fa-hotel"></i> مستوى الفندق', lbl_food: '<i class="fa-solid fa-utensils"></i> مستوى المطاعم', lbl_transport: '<i class="fa-solid fa-car"></i> المواصلات (سائق عربي)', lbl_activity: '<i class="fa-solid fa-ticket"></i> الجولات والفعاليات (بالليالي)',
-    opt_eco: "اقتصادي (3 نجوم)", opt_std: "متوسط (4 نجوم)", opt_lux: "فاخر (5 نجوم)", opt_med: "مطاعم متوسطة", opt_high: "مطاعم عالية (فاخرة)", opt_no_driver: "بدون سائق (تاكسي/مترو)", opt_airport: "استقبال من المطار فقط", opt_half: "سائق 4 ساعات يومياً", opt_full: "سائق يوم كامل (8 ساعات)", opt_no_act: "بدون جولات إضافية", opt_light: "جولات خفيفة (1-2)", opt_med_act: "جولات متوسطة (3-4)", opt_heavy: "جولات كثيرة (+5)",
-    res_total: "التكلفة التقديرية للرحلة", cost_flight: "الطيران:", cost_hotel: "الفندق:", cost_food: "الأكل:", cost_transport: "المواصلات:", cost_act: "الجولات:", btn_book: "احجز الآن", note_price: '<i class="fa-solid fa-circle-exclamation"></i> ملاحظة: السعر المعروض تقريبي وقد يتغير بناءً على التوفر والموسم.', footer_rights: "جميع الحقوق محفوظة"
+    card_wa_title: "واتساب", card_wa_desc: "تواصل معنا مباشرة للحجز والاستفسار", card_wa_btn: '<i class="fa-brands fa-whatsapp"></i> تواصل واتساب',
+    card_tk_title: "تيك توك", card_tk_desc: "شاهد فيديوهات مغامراتنا في روسيا", card_tk_btn: '<i class="fa-brands fa-tiktok"></i> تابعنا على تيك توك',
+    card_email_title: "البريد الإلكتروني", card_email_desc: "راسلنا وسنقوم بالرد عليك في أسرع وقت", card_email_btn: '<i class="fa-solid fa-paper-plane"></i> أرسل إيميل',
+    footer_rights: "جميع الحقوق محفوظة"
   },
   en: {
     top_bar: "Prices lower than official rates — Instant booking",
-    nav_home: "Home", nav_hotels: "Hotels", nav_activities: "Activities", nav_cars: "Transport", nav_calc: "Calculator", nav_contact: "Contact Us",
+    nav_home: "Home", nav_hotels: "Hotels", nav_activities: "Activities", nav_cars: "Transport", nav_calc: "Travel Calculator", nav_contact: "Contact Us",
     lang_btn: "Language",
-    calc_title: "<span>CF</span> Calculator", calc_desc: "Welcome to <strong>CF Calculator</strong>! A smart tool designed to help you plan your trip to Russia. By selecting the number of people, hotel level, and transport type, you get an <strong>instant and comprehensive estimate</strong> of your trip cost.",
-    lbl_people: '<i class="fa-solid fa-users"></i> Number of People', lbl_nights: '<i class="fa-solid fa-moon"></i> Number of Nights', lbl_hotel: '<i class="fa-solid fa-hotel"></i> Hotel Level', lbl_food: '<i class="fa-solid fa-utensils"></i> Restaurant Level', lbl_transport: '<i class="fa-solid fa-car"></i> Transport (Arab Driver)', lbl_activity: '<i class="fa-solid fa-ticket"></i> Tours & Activities',
-    opt_eco: "Economy (3 Stars)", opt_std: "Standard (4 Stars)", opt_lux: "Luxury (5 Stars)", opt_med: "Medium Restaurants", opt_high: "High-end Restaurants", opt_no_driver: "No Driver (Taxi/Metro)", opt_airport: "Airport Pick-up Only", opt_half: "Driver 4 Hours/Day", opt_full: "Full Day Driver (8 Hours)", opt_no_act: "No Extra Tours", opt_light: "Light Tours (1-2)", opt_med_act: "Medium Tours (3-4)", opt_heavy: "Many Tours (+5)",
-    res_total: "Estimated Trip Cost", cost_flight: "Flight:", cost_hotel: "Hotel:", cost_food: "Food:", cost_transport: "Transport:", cost_act: "Tours:", btn_book: "Book Now", note_price: '<i class="fa-solid fa-circle-exclamation"></i> Note: Price is approximate and may change based on availability and season.', footer_rights: "All rights reserved"
+    card_wa_title: "WhatsApp", card_wa_desc: "Contact us directly for booking and inquiries", card_wa_btn: '<i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp',
+    card_tk_title: "TikTok", card_tk_desc: "Watch our adventure videos in Russia", card_tk_btn: '<i class="fa-brands fa-tiktok"></i> Follow us on TikTok',
+    card_email_title: "Email", card_email_desc: "Email us and we will reply as soon as possible", card_email_btn: '<i class="fa-solid fa-paper-plane"></i> Send Email',
+    footer_rights: "All rights reserved"
   },
   zh: {
     top_bar: "价格低于官方价格 — 即时预订",
-    nav_home: "首页", nav_hotels: "酒店", nav_activities: "活动", nav_cars: "交通", nav_calc: "计算器", nav_contact: "联系我们",
+    nav_home: "首页", nav_hotels: "酒店", nav_activities: "活动", nav_cars: "交通", nav_calc: "旅行计算器", nav_contact: "联系我们",
     lang_btn: "语言",
-    calc_title: "<span>CF</span> 计算器", calc_desc: "欢迎使用 <strong>CF 计算器</strong>！这是一个智能工具，旨在帮助您规划俄罗斯之旅。通过选择人数、酒店级别和交通类型，您可以获得<strong>即时全面的估算</strong>。",
-    lbl_people: '<i class="fa-solid fa-users"></i> 人数', lbl_nights: '<i class="fa-solid fa-moon"></i> 晚数', lbl_hotel: '<i class="fa-solid fa-hotel"></i> 酒店级别', lbl_food: '<i class="fa-solid fa-utensils"></i> 餐厅级别', lbl_transport: '<i class="fa-solid fa-car"></i> 交通 (阿拉伯司机)', lbl_activity: '<i class="fa-solid fa-ticket"></i> 旅游与活动',
-    opt_eco: "经济 (3星)", opt_std: "标准 (4星)", opt_lux: "豪华 (5星)", opt_med: "中档餐厅", opt_high: "高档餐厅", opt_no_driver: "无司机 (出租车/地铁)", opt_airport: "仅机场接送", opt_half: "司机每天4小时", opt_full: "全天司机 (8小时)", opt_no_act: "无额外旅游", opt_light: "轻度旅游 (1-2)", opt_med_act: "中度旅游 (3-4)", opt_heavy: "大量旅游 (+5)",
-    res_total: "预计旅行费用", cost_flight: "机票:", cost_hotel: "酒店:", cost_food: "餐饮:", cost_transport: "交通:", cost_act: "旅游:", btn_book: "现在预订", note_price: '<i class="fa-solid fa-circle-exclamation"></i> 注意：价格是近似值，可能会根据供应和季节变化。', footer_rights: "版权所有"
+    card_wa_title: "WhatsApp", card_wa_desc: "直接联系我们进行预订和咨询", card_wa_btn: '<i class="fa-brands fa-whatsapp"></i> 通过WhatsApp联系',
+    card_tk_title: "TikTok", card_tk_desc: "观看我们在俄罗斯的冒险视频", card_tk_btn: '<i class="fa-brands fa-tiktok"></i> 在TikTok上关注我们',
+    card_email_title: "电子邮件", card_email_desc: "给我们发邮件，我们会尽快回复", card_email_btn: '<i class="fa-solid fa-paper-plane"></i> 发送邮件',
+    footer_rights: "版权所有"
   }
 };
 
@@ -255,14 +256,9 @@ function changeLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
     if(translations[lang] && translations[lang][key]) {
-      if(element.tagName === 'OPTION') {
-        element.textContent = translations[lang][key];
-      } else {
-        element.innerHTML = translations[lang][key];
-      }
+      element.innerHTML = translations[lang][key];
     }
   });
-  calculate();
 }
 
 window.onload = function() {
@@ -270,69 +266,18 @@ window.onload = function() {
   changeLanguage(savedLang);
 };
 
-const WHATSAPP_NUMBER = "79851226819"; 
-const COMPANY_NAME = "CF Travel";
-const prices = {
-  flightPerPerson: 400, 
-  hotel: { economy: 50, standard: 100, luxury: 250 },
-  food: { medium: 30, high: 60 },
-  transport: { none: 10, airport: 40, halfDay: 80, fullDay: 150 },
-  activities: { none: 0, light: 30, medium: 50, heavy: 80 }
-};
-
-const form = document.getElementById("calcForm");
-const totalCostEl = document.getElementById("totalCost");
-const breakdownEl = document.getElementById("breakdown");
-
-function calculate() {
-  const people = parseInt(document.getElementById("people").value) || 1;
-  const nights = parseInt(document.getElementById("nights").value) || 1;
-  const hotelType = document.getElementById("hotelType").value;
-  const foodType = document.getElementById("foodType").value;
-  const transportType = document.getElementById("transport").value;
-  const activityType = document.getElementById("activityType").value;
-
-  let flightCost = prices.flightPerPerson * people;
-  let hotelCost = prices.hotel[hotelType] * people * nights;
-  let foodCost = prices.food[foodType] * people * nights;
-  let transportCost = 0;
-  if (transportType === 'none') transportCost = prices.transport.none * people * nights;
-  else if (transportType === 'airport') transportCost = prices.transport.airport * 2; 
-  else transportCost = prices.transport[transportType] * nights; 
-  let activityCost = prices.activities[activityType] * people * nights;
-  let total = flightCost + hotelCost + foodCost + transportCost + activityCost;
-
-  totalCostEl.innerText = "$ " + total.toLocaleString();
-  document.getElementById("cost-flight").innerText = "$ " + flightCost.toLocaleString();
-  document.getElementById("cost-hotel").innerText = "$ " + hotelCost.toLocaleString();
-  document.getElementById("cost-food").innerText = "$ " + foodCost.toLocaleString();
-  document.getElementById("cost-transport").innerText = "$ " + transportCost.toLocaleString();
-  document.getElementById("cost-activities").innerText = "$ " + activityCost.toLocaleString();
-  breakdownEl.classList.add("show");
+// كود إشعار الكوكيز
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieBanner').style.display = 'none';
 }
-
-form.addEventListener("input", calculate);
-
-function sendToWhatsApp() {
-  const people = document.getElementById("people").value;
-  const nights = document.getElementById("nights").value;
-  const hotelType = document.getElementById("hotelType").options[document.getElementById("hotelType").selectedIndex].text;
-  const foodType = document.getElementById("foodType").options[document.getElementById("foodType").selectedIndex].text;
-  const transportType = document.getElementById("transport").options[document.getElementById("transport").selectedIndex].text;
-  const activityType = document.getElementById("activityType").options[document.getElementById("activityType").selectedIndex].text;
-  const total = totalCostEl.innerText;
-
-  const msg = `مرحباً ${COMPANY_NAME}،\nلقد قمت بحساب ميزانية رحلتي من الموقع:\n\n` +
-              `👥 عدد الأفراد: ${people}\n` +
-              `🌙 عدد الليالي: ${nights}\n` +
-              `🏨 مستوى الفندق: ${hotelType}\n` +
-              `🍽️ مستوى المطاعم: ${foodType}\n` +
-              `🚗 المواصلات: ${transportType}\n` +
-              `🎫 الجولات: ${activityType}\n\n` +
-              `💰 التكلفة التقديرية: ${total}\n\n` +
-              `(أعلم أن السعر تقريبي وأرغب في تأكيد الحجز).`;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
-}
+window.addEventListener('load', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    setTimeout(() => {
+      document.getElementById('cookieBanner').style.display = 'flex';
+    }, 1000);
+  }
+});
 
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -340,8 +285,13 @@ if (menuToggle) {
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
     const icon = menuToggle.querySelector('i');
-    if (navLinks.classList.contains('show')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); } 
-    else { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
+    if (navLinks.classList.contains('show')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-xmark');
+    } else {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
   });
 }
 </script>
