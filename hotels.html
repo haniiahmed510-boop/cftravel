@@ -51,7 +51,25 @@ ul{list-style:none;}
 }
 .lang-menu a:hover { background: var(--secondary); color: #000; }
 
-.showroom-section { position: relative; width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; perspective: 1500px; padding-top: 100px; background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1600') center/cover fixed; overflow: hidden; }
+/* تصميم إشعار الكوكيز */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(10, 37, 64, 0.98); backdrop-filter: blur(10px);
+  border-top: 2px solid var(--secondary);
+  color: #fff; padding: 15px 20px; z-index: 9999;
+  display: none; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+}
+.cookie-banner p { margin: 0; font-size: 14px; flex: 1; min-width: 250px; }
+.cookie-banner a { color: var(--accent); text-decoration: underline; }
+.cookie-banner button {
+  background: var(--secondary); color: #000; border: none; padding: 10px 25px;
+  border-radius: 50px; font-weight: 800; font-size: 14px; font-family: 'Cairo', sans-serif;
+  cursor: pointer; transition: 0.3s; white-space: nowrap;
+}
+.cookie-banner button:hover { background: #fff; transform: scale(1.05); }
+
+.showroom-section { position: relative; width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; perspective: 1500px; padding-top: 120px; background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1600') center/cover fixed; overflow: hidden; }
 .section-title { text-align: center; margin-bottom: 20px; z-index: 10; }
 .section-title h1 { font-size: clamp(24px,3vw,36px); font-weight: 800; color: #fff; }
 .section-title h1 span { color: var(--secondary); text-shadow: 0 0 20px rgba(0, 180, 216, 0.5); }
@@ -139,9 +157,17 @@ ul{list-style:none;}
   .nav-links li{width:100%;}
   .nav-links a{ display:block; padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.08); }
   .nav-links a.active::after{display:none;}
-  .nav-inner { flex-wrap: wrap; }
-  .lang-dropdown { margin: 10px 0; width: 100%; text-align: center; }
-  .lang-menu { right: auto; left: 50%; transform: translateX(-50%); }
+  /* تظبيط الهيدر في الموبايل */
+  .nav-inner { flex-wrap: nowrap; justify-content: space-between; padding: 8px 0; }
+  .logo { font-size: 18px; gap: 5px; }
+  .nav-logo-img { height: 35px; }
+  .lang-dropdown { margin: 0; width: auto; order: 2; }
+  .lang-btn { padding: 5px 10px; font-size: 12px; }
+  .menu-toggle { order: 3; font-size: 18px; }
+  .nav-links { order: 4; }
+  .top-bar { padding: 5px 10px; font-size: 12px; }
+  .showroom-section { padding-top: 90px; }
+  .cookie-banner { flex-direction: column; text-align: center; padding: 10px; gap: 10px; }
 }
 </style>
 </head>
@@ -214,6 +240,13 @@ ul{list-style:none;}
   <a href="https://www.tiktok.com/@cf_travel_ru?_r=1" class="social-btn btn-tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cftravel52@gmail.com" target="_blank" class="social-btn btn-email"><i class="fa-solid fa-envelope"></i></a>
 </div>
+
+<!-- إشعار الكوكيز -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>نستخدم ملفات تعريف الارتباط (Cookies) لتحسين تجربتك على موقعنا. استمرارك في التصفح يعني موافقتك على <a href="#">سياسة الخصوصية</a>.</p>
+  <button onclick="acceptCookies()">موافق</button>
+</div>
+
 <script>
 const translations = {
   ar: {
@@ -267,6 +300,19 @@ window.onload = function() {
   const savedLang = localStorage.getItem('selectedLang') || 'ar';
   changeLanguage(savedLang);
 };
+
+// كود إشعار الكوكيز
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+window.addEventListener('load', () => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    setTimeout(() => {
+      document.getElementById('cookieBanner').style.display = 'flex';
+    }, 1000);
+  }
+});
 
 const WHATSAPP_NUMBER = "79851226819";
 const COMPANY_NAME = "CF Travel";
