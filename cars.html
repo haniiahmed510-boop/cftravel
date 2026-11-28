@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>خدمات المواصلات | شركة سي اف ترافيل</title>
+<title>الفعاليات | شركة سي اف ترافيل</title>
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="images/logo.png" type="image/png" sizes="48x48" />
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -12,10 +12,10 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{--primary:#0A2540;--secondary:#00B4D8;--accent:#FFB703;--text:#F8F9FA;--muted:#9CA3AF;}
 html{scroll-behavior:smooth;}
-body{font-family:'Cairo',sans-serif;color:var(--text);background:var(--primary);line-height:1.6;direction:rtl;overflow-x:hidden; transition: all 0.3s ease;}
+body{font-family:'Cairo',sans-serif;color:var(--text);line-height:1.6;direction:rtl;overflow-x:hidden;background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1600') center/cover fixed; background-attachment: fixed; background-size: cover; transition: all 0.3s ease;}
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
-.container{max-width:1400px;margin:0 auto;padding:0 20px;}
+.container{max-width:1300px;margin:0 auto;padding:0 20px;}
 .top-bar{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;text-align:center;padding:10px 20px;font-size:14px;font-weight:600;position:fixed;top:0;width:100%;z-index:1000;}
 .navbar{background:rgba(10, 37, 64, 0.9);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,0.1);position:fixed;top:41px;width:100%;z-index:1000;}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
@@ -69,34 +69,27 @@ ul{list-style:none;}
 }
 .cookie-banner button:hover { background: #fff; transform: scale(1.05); }
 
-.cars-hero { padding: 160px 20px 60px; text-align: center; background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1600') center/cover fixed; }
-.cars-hero h1 { font-size: clamp(32px,5vw,56px); font-weight: 800; color: #fff; margin-bottom: 15px; }
-.cars-hero h1 span { color: var(--secondary); text-shadow: 0 0 20px rgba(0, 180, 216, 0.5); }
-.cars-hero p { font-size: clamp(16px,2vw,20px); color: #ddd; max-width: 800px; margin: 0 auto 20px; }
-.hero-badges { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-.hero-badges span { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 8px 20px; border-radius: 50px; font-size: 14px; color: var(--accent); font-weight: 700; display: flex; align-items: center; gap: 8px; }
-.split-section { position: relative; width: 100%; height: 80vh; display: flex; background: var(--primary); overflow: hidden; }
-.split-right { width: 65%; height: 100%; position: relative; overflow: hidden; }
-.split-image { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; transform: scale(1.05); }
-.split-image.active { opacity: 1; transform: scale(1); }
-.split-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to left, rgba(10,37,64,0.95) 0%, transparent 100%); }
-.split-left { width: 35%; height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 0 40px; background: rgba(10,37,64, 0.98); position: relative; z-index: 10; border-left: 1px solid rgba(255,255,255,0.05); }
-.split-title { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 30px; line-height: 1.2; }
-.split-title span { color: var(--secondary); }
-.car-list { display: flex; flex-direction: column; gap: 10px; max-height: 55vh; overflow-y: auto; padding-left: 10px; }
-.car-list::-webkit-scrollbar { width: 4px; }
-.car-list::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 10px; }
-.car-item { font-size: 18px; font-weight: 700; color: #555; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 12px; padding: 8px 0; }
-.car-item i { font-size: 14px; color: transparent; transition: 0.3s; }
-.car-item:hover, .car-item.active { color: var(--secondary); transform: translateX(-8px); }
-.car-item:hover i, .car-item.active i { color: var(--secondary); transform: rotate(45deg); }
-.floating-info { position: absolute; bottom: 40px; right: 40px; background: rgba(10, 37, 64, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 180, 216, 0.2); border-top: 4px solid var(--secondary); padding: 30px; border-radius: 15px; max-width: 380px; z-index: 20; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-.floating-info h3 { font-size: 24px; color: #fff; margin-bottom: 15px; }
-.floating-info ul { margin-bottom: 25px; }
-.floating-info ul li { color: #ddd; font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-.floating-info ul li i { color: var(--secondary); }
-.btn-book { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px; background: var(--secondary); color: #000; border: none; border-radius: 10px; font-weight: 800; font-size: 16px; font-family: inherit; cursor: pointer; transition: 0.3s; }
-.btn-book:hover { background: #fff; box-shadow: 0 0 20px rgba(0, 180, 216, 0.5); }
+.showroom-section { position: relative; width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 100px; padding-bottom: 50px; overflow: hidden; }
+.city-title { font-size: 32px; font-weight: 800; color: var(--accent); margin: 40px 0 20px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 15px; text-shadow: 0 0 20px rgba(255, 183, 3, 0.5); }
+.city-title span { height: 2px; width: 80px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.notice-text { text-align: center; color: #ff4757; font-weight: 800; margin-bottom: 20px; font-size: 16px; }
+.carousel-container { position: relative; width: 100%; height: 550px; display: flex; justify-content: center; align-items: center; perspective: 1200px; }
+.carousel-track { position: relative; width: 340px; height: 480px; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+.show-card { position: absolute; top: 0; left: 0; width: 340px; height: 480px; border-radius: 20px; overflow: hidden; background: #000; border: 2px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px rgba(0,0,0,0.5); transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); transform-origin: center center; cursor: pointer; }
+.show-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.show-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,37,64,0.98) 0%, rgba(10,37,64,0.4) 60%, transparent 100%); transition: background 0.4s; }
+.card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 25px 20px; z-index: 2; text-align: center; transform: translateY(20px); opacity: 0; transition: all 0.5s; }
+.card-info h3 { font-size: 22px; font-weight: 800; color: var(--accent); margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);}
+.card-info p { font-size: 14px; color: #ddd; line-height: 1.6; margin-bottom: 15px;}
+.btn-book-small { background: var(--secondary); color: #000; border: none; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 800; font-family: inherit; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 6px; }
+.btn-book-small:hover { background: #fff; }
+.show-card.active { border-color: var(--secondary); box-shadow: 0 0 50px rgba(0, 180, 216, 0.5); z-index: 50; }
+.show-card.active img { transform: scale(1.05); }
+.show-card.active .card-info { transform: translateY(0); opacity: 1; }
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 60px; height: 60px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; z-index: 100; transition: 0.3s; }
+.nav-btn:hover { background: var(--secondary); color: #000; transform: translateY(-50%) scale(1.1); }
+.nav-prev { right: 10%; }
+.nav-next { left: 10%; }
 .footer{position:relative; width:100%; background:rgba(5,12,21,0.95); border-top:1px solid rgba(255, 255, 255, 0.1); color:#fff;padding:20px 0;text-align:center; display:flex; justify-content:center; align-items:center; gap:20px;}
 .footer p{opacity:.8;font-size:13px; margin:0;}
 .floating-social { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
@@ -106,14 +99,16 @@ ul{list-style:none;}
 .btn-tiktok { background: #000; border: 2px solid #fff; color: #fff;}
 .btn-email { background: var(--accent); color: #000; }
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6);}70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
-@media(max-width:1000px){
-  .split-section { flex-direction: column; height: auto; }
-  .split-right { width: 100%; height: 350px; }
-  .split-left { width: 100%; height: auto; padding: 30px 20px; border-left: none; border-top: 1px solid rgba(255,255,255,0.05);}
-  .car-list { max-height: none; flex-direction: row; flex-wrap: wrap; justify-content: center;}
-  .floating-info { position: relative; bottom: 0; right: 0; margin: -40px auto 20px; max-width: 90%; transform: translateY(-20px);}
-}
 @media(max-width:900px){
+  .carousel-track { width: 280px; height: 420px; }
+  .show-card { width: 280px; height: 420px; }
+  .card-info h3 { font-size: 18px; }
+  .card-info p { font-size: 13px; }
+  .nav-btn { width: 45px; height: 45px; font-size: 18px; }
+  .nav-prev { right: 2%; }
+  .nav-next { left: 2%; }
+  .footer { flex-direction: column; gap: 5px; }
+  .city-title { font-size: 24px; margin: 30px 0 15px; }
   .menu-toggle{display:block;}
   .nav-links{ position:absolute; top:100%; right:0; left:0; background:rgba(10,37,64,0.98); backdrop-filter:blur(15px); flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
   .nav-links.show{max-height:500px;}
@@ -129,7 +124,7 @@ ul{list-style:none;}
   .menu-toggle { order: 3; font-size: 18px; }
   .nav-links { order: 4; }
   .top-bar { padding: 5px 10px; font-size: 12px; }
-  .cars-hero { padding-top: 110px; }
+  .showroom-section { padding-top: 80px; }
   .cookie-banner { flex-direction: column; text-align: center; padding: 10px; gap: 10px; }
 }
 </style>
@@ -156,34 +151,36 @@ ul{list-style:none;}
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
       <li><a href="hotels.html" data-i18n="nav_hotels">الفنادق</a></li>
-      <li><a href="activities.html" data-i18n="nav_activities">الفعاليات</a></li>
-      <li><a href="cars.html" class="active" data-i18n="nav_cars">المواصلات</a></li>
+      <li><a href="activities.html" class="active" data-i18n="nav_activities">الفعاليات</a></li>
+      <li><a href="cars.html" data-i18n="nav_cars">المواصلات</a></li>
       <li><a href="calculator.html" data-i18n="nav_calc">حاسبة السفر</a></li>
       <li><a href="contact.html" data-i18n="nav_contact">اتصل بنا</a></li>
     </ul>
   </div>
 </nav>
-<header class="cars-hero">
-  <h1 data-i18n="hero_title">خدمات <span>المواصلات</span></h1>
-  <p data-i18n="hero_desc">أسطول سيارات حديث ومتنوع يناسب جميع احتياجاتك. نوفر لك استقبال وتوديع من المطار، وجولات سياحية ممتعة مع سائقين عرب وروس.</p>
-  <div class="hero-badges">
-    <span data-i18n="badge_1"><i class="fa-solid fa-plane"></i> استقبال وتوديع</span>
-    <span data-i18n="badge_2"><i class="fa-solid fa-map-location-dot"></i> جولات سياحية</span>
-    <span data-i18n="badge_3"><i class="fa-solid fa-user-tie"></i> سائقين عرب وروس</span>
-  </div>
-</header>
-<section class="split-section">
-  <div class="split-right" id="imageContainer"></div>
-  <div class="split-left">
-    <h1 class="split-title" data-i18n="split_title">اختر <br><span>سيارتك</span></h1>
-    <div class="car-list" id="carList"></div>
-  </div>
-  <div class="floating-info" id="infoContainer">
-    <h3 id="carName">اسم السيارة</h3>
-    <ul id="carFeatures"></ul>
-    <button class="btn-book" id="bookBtn"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn_book_car">احجز هذه السيارة</span></button>
+
+<!-- قسم فعاليات موسكو -->
+<section class="showroom-section">
+  <div class="city-title"><span></span><i class="fa-solid fa-building-columns"></i> <span data-i18n="moscow_act">فعاليات موسكو</span> <span></span></div>
+  <div class="notice-text" data-i18n="notice_moscow">‼️ الفعاليات أسعارها تختلف حسب الموسم ‼️</div>
+  <div class="carousel-container">
+    <button class="nav-btn nav-prev" onclick="moveMoscow(-1)"><i class="fa-solid fa-chevron-right"></i></button>
+    <button class="nav-btn nav-next" onclick="moveMoscow(1)"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="carousel-track" id="track-moscow"></div>
   </div>
 </section>
+
+<!-- قسم فعاليات سوتشي -->
+<section class="showroom-section" style="padding-top: 0;">
+  <div class="city-title"><span></span><i class="fa-solid fa-water"></i> <span data-i18n="sochi_act">فعاليات سوتشي</span> <span></span></div>
+  <div class="notice-text" data-i18n="notice_sochi">‼️ الفعاليات أسعارها تختلف حسب الموسم ‼️</div>
+  <div class="carousel-container">
+    <button class="nav-btn nav-prev" onclick="moveSochi(-1)"><i class="fa-solid fa-chevron-right"></i></button>
+    <button class="nav-btn nav-next" onclick="moveSochi(1)"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="carousel-track" id="track-sochi"></div>
+  </div>
+</section>
+
 <footer class="footer">
   <p>© 2025 CF Travel — <span data-i18n="footer_rights">جميع الحقوق محفوظة</span></p>
   <p style="direction: ltr; display: flex; align-items: center; gap: 5px;"><i class="fa-brands fa-whatsapp"></i> +7 985 122 6819</p>
@@ -206,31 +203,100 @@ const translations = {
     top_bar: "أسعارنا أقل من السعر الرسمي للفندق — حجوزات فورية",
     nav_home: "الرئيسية", nav_hotels: "الفنادق", nav_activities: "الفعاليات", nav_cars: "المواصلات", nav_calc: "حاسبة السفر", nav_contact: "اتصل بنا",
     lang_btn: "اللغة",
-    hero_title: "خدمات <span>المواصلات</span>", hero_desc: "أسطول سيارات حديث ومتنوع يناسب جميع احتياجاتك. نوفر لك استقبال وتوديع من المطار، وجولات سياحية ممتعة مع سائقين عرب وروس.",
-    badge_1: '<i class="fa-solid fa-plane"></i> استقبال وتوديع', badge_2: '<i class="fa-solid fa-map-location-dot"></i> جولات سياحية', badge_3: '<i class="fa-solid fa-user-tie"></i> سائقين عرب وروس',
-    split_title: "اختر <br><span>سيارتك</span>", btn_book_car: "احجز هذه السيارة", footer_rights: "جميع الحقوق محفوظة",
-    f1: "فخامة وراحة", f2: "سائق عربي/روسي", f3: "مكيفة", f4: "سيارة عصرية", f5: "SUV مدمجة", f6: "عائلية مريحة", f7: "SUV أنيقة", f8: "فخامة ومساحة", f9: "فان فاخر", f10: "يتسع لـ 7 أفراد", f11: "فان واسع", f12: "يتسع لـ 15 فرد", f13: "مساحة استثنائية", f14: "يتسع لـ 8 أفراد", f15: "فان عائلي", f16: "فان كهربائي حديث", f17: "يتسع لـ 6 أفراد", f18: "فان عائلي عملي",
-    group_1: "سيارات عادية", group_2: "ميني فان"
+    moscow_act: "فعاليات موسكو", sochi_act: "فعاليات سوتشي", 
+    notice_moscow: "‼️ الفعاليات أسعارها تختلف حسب الموسم ‼️", notice_sochi: "‼️ الفعاليات أسعارها تختلف حسب الموسم ‼️", 
+    footer_rights: "جميع الحقوق محفوظة", btn_book: "احجز الآن",
+    act_1: "ركوب المنطاد", desc_1: "تجربة رائعة للطيران فوق موسكو.",
+    act_2: "رحلة هيلكوبتر", desc_2: "طائرة Robinson – لعدة أشخاص (ربع ساعة).",
+    act_3: "التجربة العسكرية", desc_3: "تجربة فريدة (مدة ساعتين ونصف).",
+    act_4: "قيادة الدبابة العملاقة", desc_4: "ساعة كاملة – لعدة أشخاص.",
+    act_5: "رحلة بالطائرة", desc_5: "طائرة Cessna – ربع ساعة.",
+    act_6: "الدبابات الرباعية", desc_6: "مدة ساعة من المتعة.",
+    act_7: "دريفت السيارات", desc_7: "مع مدرب محترف (ساعة كاملة).",
+    act_8: "ركوب عربات الهاسكي", desc_8: "تجربة ممتعة مع كلاب الهاسكي.",
+    act_9: "ركوب الخيل", desc_9: "تجربة ركوب الخيل في الطبيعة.",
+    act_10: "التفاعل مع الحيوانات", desc_10: "الدب توم – النمر.",
+    act_11: "الكارتينج", desc_11: "مدة ربع ساعة من السرعة.",
+    act_12: "التلفريك", desc_12: "استمتع بإطلالات بانورامية.",
+    act_13: "الزبلاين", desc_13: "مغامرة الهبوط من أعلى المرتفعات.",
+    act_14: "العجلة الدوارة", desc_14: "إطلالة ساحرة على المدينة.",
+    act_15: "بانوراما موسكو سيتي", desc_15: "أعلى نقطة لمشاهدة موسكو.",
+    act_16: "جولة في الكرملين", desc_16: "تذكرة مع مرشد سياحي عربي.",
+    act_17: "السيرك الروسي", desc_17: "مشاهدة أشهر عروض السيرك.",
+    act_18: "رحلة كروز نهرية", desc_18: "حسب الفئة – جولة في نهر موسكو.",
+    s_1: "حديقة سوتشي", sdesc_1: "تشمل الألعاب والعروض والدلافين والسيرك. تذكرة VIP متاحة (بدون طوابير).",
+    s_2: "السيرك الروسي العظيم", sdesc_2: "عروض مبهرة تناسب جميع الأعمار (السعر يختلف حسب المقعد).",
+    s_3: "أكواريوم", sdesc_3: "دخول الأكواريوم، عرض الدلافين، وتجربة السباحة مع الدلافين.",
+    s_4: "جولة جبال سوتشي الشاملة", sdesc_4: "تشمل تلفريك لا نهائي، زحليقة صيفية، ومتحف روسي.",
+    s_5: "Skypark - دخول", sdesc_5: "تذكرة الدخول للاستمتاع بالمناظر والمغامرات.",
+    s_6: "Skypark - زبلاين", sdesc_6: "تجربة الزبلاين المثيرة.",
+    s_7: "Skypark - Megatroll", sdesc_7: "مشابه للتلفريك المفتوح أو الزبلاين بكرسي."
   },
   en: {
     top_bar: "Prices lower than official rates — Instant booking",
     nav_home: "Home", nav_hotels: "Hotels", nav_activities: "Activities", nav_cars: "Transport", nav_calc: "Travel Calculator", nav_contact: "Contact Us",
     lang_btn: "Language",
-    hero_title: "Transport <span>Services</span>", hero_desc: "A modern and diverse fleet of cars that suits all your needs. We provide airport pick-up and drop-off, and enjoyable tours with Arab and Russian drivers.",
-    badge_1: '<i class="fa-solid fa-plane"></i> Airport Transfer', badge_2: '<i class="fa-solid fa-map-location-dot"></i> Tours', badge_3: '<i class="fa-solid fa-user-tie"></i> Arab & Russian Drivers',
-    split_title: "Choose <br><span>Your Car</span>", btn_book_car: "Book This Car", footer_rights: "All rights reserved",
-    f1: "Luxury & Comfort", f2: "Arab/Russian Driver", f3: "Air Conditioned", f4: "Modern Car", f5: "Compact SUV", f6: "Comfortable Family", f7: "Elegant SUV", f8: "Luxury & Space", f9: "Luxury Van", f10: "Fits 7 People", f11: "Spacious Van", f12: "Fits 15 People", f13: "Exceptional Space", f14: "Fits 8 People", f15: "Family Van", f16: "Modern Electric Van", f17: "Fits 6 People", f18: "Practical Family Van",
-    group_1: "Standard Cars", group_2: "Mini Van"
+    moscow_act: "Moscow Activities", sochi_act: "Sochi Activities",
+    notice_moscow: "‼️ Activities prices vary by season ‼️", notice_sochi: "‼️ Activities prices vary by season ‼️",
+    footer_rights: "All rights reserved", btn_book: "Book Now",
+    act_1: "Hot Air Balloon", desc_1: "Amazing flight experience over Moscow.",
+    act_2: "Helicopter Ride", desc_2: "Robinson – multiple people (15 mins).",
+    act_3: "Military Experience", desc_3: "Unique experience (2.5 hours).",
+    act_4: "Tank Driving", desc_4: "Full hour – multiple people.",
+    act_5: "Airplane Ride", desc_5: "Cessna – 15 mins.",
+    act_6: "Quad Bikes", desc_6: "A full hour of fun.",
+    act_7: "Drift Driving", desc_7: "With professional coach (1 hour).",
+    act_8: "Husky Ride", desc_8: "Fun experience with Huskies.",
+    act_9: "Horse Riding", desc_9: "Horse riding in nature.",
+    act_10: "Animal Interaction", desc_10: "Tom the Bear – Tiger.",
+    act_11: "Karting", desc_11: "15 mins of speed.",
+    act_12: "Cable Car", desc_12: "Enjoy panoramic views.",
+    act_13: "Zipline", desc_13: "Adventure from high altitudes.",
+    act_14: "Ferris Wheel", desc_14: "Magical view of the city.",
+    act_15: "Moscow City Panorama", desc_15: "Highest point to view Moscow.",
+    act_16: "Kremlin Tour", desc_16: "Ticket with Arab guide.",
+    act_17: "Russian Circus", desc_17: "Watch the most famous shows.",
+    act_18: "River Cruise", desc_18: "By class – Moscow River tour.",
+    s_1: "Sochi Park", sdesc_1: "Includes rides, shows, dolphins, and circus. VIP ticket available (no lines).",
+    s_2: "Great Russian Circus", sdesc_2: "Amazing shows for all ages (price varies by seat).",
+    s_3: "Aquarium", sdesc_3: "Aquarium entry, dolphin show, and swimming with dolphins experience.",
+    s_4: "Sochi Mountains Full Tour", sdesc_4: "Includes unlimited cable car, summer slide, and Russian museum.",
+    s_5: "Skypark - Entry", sdesc_5: "Entry ticket to enjoy views and adventures.",
+    s_6: "Skypark - Zipline", sdesc_6: "Exciting zipline experience.",
+    s_7: "Skypark - Megatroll", sdesc_7: "Similar to open cable car or zipline chair."
   },
   zh: {
     top_bar: "价格低于官方价格 — 即时预订",
     nav_home: "首页", nav_hotels: "酒店", nav_activities: "活动", nav_cars: "交通", nav_calc: "旅行计算器", nav_contact: "联系我们",
     lang_btn: "语言",
-    hero_title: "交通 <span>服务</span>", hero_desc: "现代化、多样化的车队，满足您所有的需求。我们提供机场接送，以及由阿拉伯和俄罗斯司机提供的愉快旅行。",
-    badge_1: '<i class="fa-solid fa-plane"></i> 机场接送', badge_2: '<i class="fa-solid fa-map-location-dot"></i> 旅游', badge_3: '<i class="fa-solid fa-user-tie"></i> 阿拉伯和俄罗斯司机',
-    split_title: "选择 <br><span>您的车</span>", btn_book_car: "预订这辆车", footer_rights: "版权所有",
-    f1: "豪华舒适", f2: "阿拉伯/俄罗斯司机", f3: "空调", f4: "现代汽车", f5: "紧凑型SUV", f6: "舒适家庭", f7: "优雅SUV", f8: "豪华空间", f9: "豪华面包车", f10: "可容纳7人", f11: "宽敞面包车", f12: "可容纳15人", f13: "非凡空间", f14: "可容纳8人", f15: "家庭面包车", f16: "现代电动面包车", f17: "可容纳6人", f18: "实用家庭面包车",
-    group_1: "标准车", group_2: "小型面包车"
+    moscow_act: "莫斯科活动", sochi_act: "索契活动",
+    notice_moscow: "‼️ 活动价格随季节变化 ‼️", notice_sochi: "‼️ 活动价格随季节变化 ‼️",
+    footer_rights: "版权所有", btn_book: "现在预订",
+    act_1: "热气球", desc_1: "在莫斯科上空飞行的奇妙体验。",
+    act_2: "直升机之旅", desc_2: "Robinson – 多人 (15分钟)。",
+    act_3: "军事体验", desc_3: "独特的体验 (2.5小时)。",
+    act_4: "驾驶巨型坦克", desc_4: "整整一小时 – 多人。",
+    act_5: "飞机之旅", desc_5: "Cessna – 15分钟。",
+    act_6: "四轮摩托", desc_6: "一小时的乐趣。",
+    act_7: "赛车漂移", desc_7: "有专业教练 (1小时)。",
+    act_8: "哈士奇雪橇", desc_8: "与哈士奇的有趣体验。",
+    act_9: "骑马", desc_9: "在大自然中骑马。",
+    act_10: "动物互动", desc_10: "汤姆熊 – 老虎。",
+    act_11: "卡丁车", desc_11: "15分钟的速度。",
+    act_12: "缆车", desc_12: "享受全景。",
+    act_13: "滑索", desc_13: "高空冒险。",
+    act_14: "摩天轮", desc_14: "城市的迷人景色。",
+    act_15: "莫斯科城全景", desc_15: "观赏莫斯科的最高点。",
+    act_16: "克里姆林宫之旅", desc_16: "含阿拉伯导游。",
+    act_17: "俄罗斯马戏团", desc_17: "观看最著名的表演。",
+    act_18: "内河游船", desc_18: "按等级 – 莫斯科河之旅。",
+    s_1: "索契公园", sdesc_1: "含游乐设施、表演、海豚、马戏团。提供VIP票（免排队）。",
+    s_2: "伟大的俄罗斯马戏团", sdesc_2: "适合所有年龄段的精彩表演（价格因座位而异）。",
+    s_3: "水族馆", sdesc_3: "水族馆入场、海豚表演、与海豚共游体验。",
+    s_4: "索契山脉全游", sdesc_4: "含无限缆车、夏季滑梯、俄罗斯博物馆。",
+    s_5: "Skypark - 入场", sdesc_5: "入场券，享受美景与冒险。",
+    s_6: "Skypark - 滑索", sdesc_6: "刺激的滑索体验。",
+    s_7: "Skypark - Megatroll", sdesc_7: "类似开放式缆车或滑索椅。"
   }
 };
 
@@ -249,7 +315,8 @@ function changeLanguage(lang) {
       element.innerHTML = translations[lang][key];
     }
   });
-  buildCarList();
+  renderMoscow();
+  renderSochi();
 }
 
 window.onload = function() {
@@ -270,61 +337,112 @@ window.addEventListener('load', () => {
   }
 });
 
-const WHATSAPP_NUMBER = "79851226819";
+const WHATSAPP_NUMBER = "79851226819"; 
 const COMPANY_NAME = "CF Travel";
-const allCars = [
-  { name: "Mercedes E-Class", img: "images/mers-e.jpg", features: ["f1", "f2", "f3"] },
-  { name: "Faw", img: "images/faw.jpg", features: ["f4", "f2", "f3"] },
-  { name: "Geely Coolray", img: "images/geely (1).jpg", features: ["f5", "f2", "f3"] },
-  { name: "Chery Tiggo 7 Pro", img: "images/chery.jpg", features: ["f6", "f2", "f3"] },
-  { name: "Haval Jolion", img: "images/haval.jpg", features: ["f7", "f2", "f3"] },
-  { name: "Exeed", img: "images/exeed.jpg", features: ["f8", "f2", "f3"] },
-  { name: "Jaecoo J7", img: "images/jaecoo.jpg", features: ["f4", "f2", "f3"] },
-  { name: "Mercedes V-Class", img: "images/mers-v.png", features: ["f9", "f10", "f2"] },
-  { name: "Mercedes Sprinter", img: "images/mers sprinter.jpg", features: ["f11", "f12", "f2"] },
-  { name: "Mercedes Long", img: "images/mers-long.png", features: ["f13", "f14", "f2"] }, 
-  { name: "Volkswagen", img: "images/vw.jpg", features: ["f15", "f10", "f2"] },
-  { name: "Zeekr 008", img: "images/zeeker.jpg", features: ["f16", "f17", "f2"] },
-  { name: "Jac J8", img: "images/jac.jpg", features: ["f18", "f10", "f2"] }
+
+function bookActivity(activityName) {
+  const msg = `مرحباً ${COMPANY_NAME}،\nأرغب في حجز فعالية: ${activityName}\nالتاريخ: \nعدد الأفراد: \nوشكراً.`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+}
+
+// بيانات موسكو
+const moscowActivities = [
+  { name:"act_1", img:"images/balloon.jpg", desc:"desc_1" },
+  { name:"act_2", img:"images/helicopter.jpg", desc:"desc_2" },
+  { name:"act_3", img:"images/military.jpg", desc:"desc_3" },
+  { name:"act_4", img:"images/tank.jpg", desc:"desc_4" },
+  { name:"act_5", img:"images/cessna.jpg", desc:"desc_5" },
+  { name:"act_6", img:"images/quad-bikes.jpg", desc:"desc_6" },
+  { name:"act_7", img:"images/drift.jpg", desc:"desc_7" },
+  { name:"act_8", img:"images/husky.jpg", desc:"desc_8" },
+  { name:"act_9", img:"images/horse.jpg", desc:"desc_9" },
+  { name:"act_10", img:"images/animals.jpg", desc:"desc_10" },
+  { name:"act_11", img:"images/karting.jpg", desc:"desc_11" },
+  { name:"act_12", img:"images/cablecar.jpg", desc:"desc_12" },
+  { name:"act_13", img:"images/zipline.jpg", desc:"desc_13" },
+  { name:"act_14", img:"images/ferris-wheel.jpg", desc:"desc_14" },
+  { name:"act_15", img:"images/moscow-city.jpg", desc:"desc_15" },
+  { name:"act_16", img:"images/kremlin-tour.jpg", desc:"desc_16" },
+  { name:"act_17", img:"images/circus.jpg", desc:"desc_17" },
+  { name:"act_18", img:"images/river-cruise.jpg", desc:"desc_18" }
 ];
 
-document.getElementById("imageContainer").innerHTML = allCars.map((car, index) => {
-  return `<div class="split-image ${index === 0 ? 'active' : ''}" id="img-${index}" style="background-image: url('${car.img}');"></div>`;
-}).join("");
+// بيانات سوتشي
+const sochiActivities = [
+  { name:"s_1", img:"images/sochi-park.jpg", desc:"sdesc_1" },
+  { name:"s_2", img:"images/sochi-circus.jpg", desc:"sdesc_2" },
+  { name:"s_3", img:"images/sochi-aquarium.jpg", desc:"sdesc_3" },
+  { name:"s_4", img:"images/sochi-mountains.jpg", desc:"sdesc_4" },
+  { name:"s_5", img:"images/sochi-skypark.jpg", desc:"sdesc_5" },
+  { name:"s_6", img:"images/sochi-zipline.jpg", desc:"sdesc_6" },
+  { name:"s_7", img:"images/sochi-megatroll.jpg", desc:"sdesc_7" }
+];
 
-function buildCarList() {
-  const lang = localStorage.getItem('selectedLang') || 'ar';
-  document.getElementById("carList").innerHTML = allCars.map((car, index) => {
-    let label = "";
-    if (index === 0) label = `<div style="color: var(--accent); font-size: 13px; margin-bottom: 5px; font-weight: 800;">${translations[lang].group_1}</div>`;
-    if (index === 7) label = `<div style="color: var(--accent); font-size: 13px; margin-top: 15px; margin-bottom: 5px; font-weight: 800;">${translations[lang].group_2}</div>`;
-    return `
-      ${label}
-      <div class="car-item ${index === 0 ? 'active' : ''}" id="item-${index}" onmouseover="changeCar(${index})">
-        <i class="fa-solid fa-car-side"></i> ${car.name}
+function createCard(act, lang) {
+  const name = translations[lang][act.name] || act.name;
+  const desc = translations[lang][act.desc] || act.desc;
+  const btnText = translations[lang].btn_book;
+  return `
+    <div class="show-card" onclick="bookActivity('${name}')">
+      <img src="${act.img}" alt="${name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1520106212299-d99c443e4568?w=800'">
+      <div class="card-info">
+        <h3>${name}</h3>
+        <p>${desc}</p>
+        <button class="btn-book-small" onclick="event.stopPropagation(); bookActivity('${name}')">
+          <i class="fa-brands fa-whatsapp"></i> ${btnText}
+        </button>
       </div>
-    `;
-  }).join("");
-  changeCar(0);
+    </div>
+  `;
 }
 
-function changeCar(index) {
+let moscowIndex = 0;
+function renderMoscow() {
   const lang = localStorage.getItem('selectedLang') || 'ar';
-  document.querySelectorAll('.split-image').forEach(img => img.classList.remove('active'));
-  document.getElementById(`img-${index}`).classList.add('active');
-  document.querySelectorAll('.car-item').forEach(item => item.classList.remove('active'));
-  document.getElementById(`item-${index}`).classList.add('active');
-
-  const car = allCars[index];
-  document.getElementById("carName").innerText = car.name;
-  const featuresHTML = car.features.map(f => `<li><i class="fa-solid fa-check"></i> ${translations[lang][f] || f}</li>`).join("");
-  document.getElementById("carFeatures").innerHTML = featuresHTML;
-  document.getElementById("bookBtn").onclick = () => bookCar(car.name);
+  document.getElementById("track-moscow").innerHTML = moscowActivities.map((act) => createCard(act, lang)).join("");
+  updateWheel(document.querySelectorAll("#track-moscow .show-card"), moscowIndex);
+}
+function moveMoscow(dir) {
+  moscowIndex = (moscowIndex + dir + moscowActivities.length) % moscowActivities.length;
+  updateWheel(document.querySelectorAll("#track-moscow .show-card"), moscowIndex);
 }
 
-function bookCar(carName) {
-  const msg = `مرحباً ${COMPANY_NAME}،\nأرغب في حجز سيارة: ${carName}\nالتاريخ: \nعدد الأفراد: \nوشكراً.`;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+let sochiIndex = 0;
+function renderSochi() {
+  const lang = localStorage.getItem('selectedLang') || 'ar';
+  document.getElementById("track-sochi").innerHTML = sochiActivities.map((act) => createCard(act, lang)).join("");
+  updateWheel(document.querySelectorAll("#track-sochi .show-card"), sochiIndex);
+}
+function moveSochi(dir) {
+  sochiIndex = (sochiIndex + dir + sochiActivities.length) % sochiActivities.length;
+  updateWheel(document.querySelectorAll("#track-sochi .show-card"), sochiIndex);
+}
+
+function updateWheel(cards, activeIndex) {
+  cards.forEach((card, index) => {
+    let offset = index - activeIndex;
+    if (Math.abs(offset) > 2) { 
+      card.style.opacity = '0'; card.style.pointerEvents = 'none';
+      card.style.transform = `scale(0.5) translateX(${offset > 0 ? '100%' : '-100%'})`;
+      return;
+    }
+    card.style.opacity = '1'; card.style.pointerEvents = 'auto';
+    let scale = 1 - Math.abs(offset) * 0.15;
+    let translateX = offset * 65; 
+    let rotateY = offset * -25; 
+    let zIndex = 10 - Math.abs(offset);
+    let opacity = 1 - Math.abs(offset) * 0.3; 
+    if (offset === 0) {
+      card.classList.add('active');
+      card.style.transform = `translateX(0) scale(1) rotateY(0deg)`;
+      card.style.opacity = '1';
+    } else {
+      card.classList.remove('active');
+      card.style.transform = `translateX(${translateX}%) scale(${scale}) rotateY(${rotateY}deg)`;
+      card.style.opacity = opacity;
+    }
+    card.style.zIndex = zIndex;
+  });
 }
 
 const menuToggle = document.querySelector('.menu-toggle');
@@ -337,6 +455,31 @@ if (menuToggle) {
     else { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
   });
 }
+
+function enableSwipe(containerSelector, moveFunc) {
+  const container = document.querySelector(containerSelector);
+  if(!container) return;
+  let startX = 0; let isDragging = false;
+  container.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, {passive: true});
+  container.addEventListener('touchend', (e) => {
+    if(!isDragging) return;
+    isDragging = false;
+    let endX = e.changedTouches[0].clientX;
+    let diff = startX - endX;
+    if (diff > 50) moveFunc(1);
+    else if (diff < -50) moveFunc(-1);
+  }, {passive: true});
+}
+setTimeout(() => {
+  const containers = document.querySelectorAll('.carousel-container');
+  if (containers.length >= 2) {
+    enableSwipe('.carousel-container:nth-of-type(1)', moveMoscow);
+    enableSwipe('.carousel-container:nth-of-type(2)', moveSochi);
+  }
+}, 1000); 
 </script>
 </body>
 </html>
